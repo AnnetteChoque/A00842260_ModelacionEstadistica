@@ -10,7 +10,6 @@ execute:
   echo: true          # Show code in the output document
 ---
 
-
 # Exploración de la base de datos
 
 ```{r}

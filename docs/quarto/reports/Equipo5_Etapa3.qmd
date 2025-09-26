@@ -1,0 +1,109 @@
+---
+title: "Equipo5_Etapa3"
+author:
+  - Mariana Hernández Jiménez   |   A00841920
+  - Andrea Estefanía De la Peña Contreras  |  A00840973
+  - Carolina Navarro Barrón   |   A00839486
+  - Annette Abigail Choque Millán   |  A00842260
+  - Maricarmen Terán Maturino   |   A00841435
+date: "2025-10-15"
+format: pdf
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotrix)
+library(dplyr)
+```
+
+```{r}
+#Nueva base de datos de los 3 años
+M22L = read.csv("Datos2022Limpios.csv")
+M23L = read.csv("Datos2023Limpios.csv")
+M24L = read.csv("Datos2024Limpios.csv")
+
+M2224 = bind_rows(M22L,M23L,M24L)
+
+write.csv(M2224,"BasedeDatosMolec.csv",row.names = FALSE)
+```
+
+## Quarto
+
+```{r}
+n = 20 # u otro valor como 50, 100
+media = 100 # Media de población
+DE = 15 # Desviación estándar depoblación
+ErrorEst= DE/sqrt(n)
+X_ = rnorm(n, media, ErrorEst)
+E = 1.96*DE/sqrt(n) # E = Error máximo
+plotCI(1:n,X_, E ,main="Gráfico de IC", , xlab
+= "n intervalos", ylab = "medias muestrales")
+abline(h = 100, col = "red")
+
+```
+
+## Pruebas de Hipótesis
+
+### Diferencia de medias
+
+**Hipótesis 1:** Las personas con mayor nivel educativo gastan más en libros.
+
+Sea "mu" la media
+
+Hipótesis Nula.
+
+H0 : mu1 = mu2. No existe diferencia entre el gasto en libros para diferente nivel educativo
+
+Hipótesis alternativa. Que las personas con mayor nivel educativo gastan más en libros.
+
+H1: mu1 \< mu2
+
+```{r}
+LI= M2224 %>% filter(nivel <= 4) %>% pull(p7_3)
+LS= M2224 %>% filter(nivel >= 7) %>% pull(p7_3)
+t.test(LI, LS, alternative = "less", var.equal = FALSE, conf.level = 0.96)
+
+```
+
+En esta prueba obtenemos: p-value = 0.03814 y tomamos el valor de significancia como 0.05
+
+Como el valor p \> 0.05 entonces se rechaza la hipótesis nula y decimos que el nivel educativo si hace una diferencia en el gasto en libros.
+
+Obtuvimos también que t = -1.7807 es negativo porque el gasto promedio de la clase de menor nivel educativo es menor que el promedio de los de mayor nivel educativo. Esto nos lleva a concluir que las personas con mayor nivel educativo gastan más en libros.
+
+**Hipótesis 2**: El número de libros leídos varía según la condición económica
+
+Sea "mu" la media
+
+Hipótesis Nula. No hay diferencia entre laa condición económica y los libros leidos
+
+H0 : mu1 = mu2
+
+```{r}
+trabaja= M2224 %>% filter(cond_act == 1) %>% pull(p4)
+no_trabaja= M2224 %>% filter(cond_act != 1) %>% pull(p4)
+
+t.test(trabaja, no_trabaja, alternative = "two.sided", var.equal = FALSE, conf.level = 0.96)
+
+```
+
+Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es \> 0.05 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
+
+**Hipótesis 3:** Existen diferencias de género en el comportamiento lector.
+
+Sea "mu" la media
+
+Hipótesis Nula. No existen diferencias entre la lectura en hombres y en mujeres
+
+H0 : mu1 = mu2
+
+```{r}
+hombres=M2224 %>% filter(sexo == 1) %>% pull(p4)
+mujeres=M2224 %>% filter(sexo == 2) %>% pull(p4)
+
+t.test(hombres, mujeres, alternative = "two.sided",var.equal = TRUE, conf.level = 0.96)
+
+```
+
+En este caso obtuvimos un valor de p-value = 0.1116 \> 0.05 lo cual se interpreta en que no tenemos evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intérvalo de confianza se incluye el cero, lo cual refuerza la idea de que no podemos decir que hay una diferencia significativa en el comportamiento de la lectura entre hombres y mujeres.
