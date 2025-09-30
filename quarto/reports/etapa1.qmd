@@ -3,7 +3,7 @@ title: "Etapa 1. El contexto"
 author: "Blanca Ruiz"
 date: today
 format:
-  docx:
+  pdf:
     toc: false          # Do not include table of contents
 
 execute:
