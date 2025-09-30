@@ -1,6 +1,6 @@
 ---
 title: 'Etapa 1: El Contexto y el Objetivo'
-author: "Annette Abigail Choque Millán"
+author: "Equipo 5"
 date: "2025-09-30"
 output:
   pdf_document: default
@@ -11,14 +11,19 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+##2. EXPLORACIÓN DE LOS DATOS Y SELECCIÓN DE LAS VARIABLES
 holaa
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r cars}
-summary(cars)
+M19 = read.csv("Datos_molec_2019-1.csv")
+D19 = read.csv("Diccionario_molec_2019-1.csv")
+
+names(M19) #muestra la lista de nombres de las variables
+View(M19) #se mostrará una hoja electrónica aparte con los datos
+
 ```
 
 ## Including Plots
