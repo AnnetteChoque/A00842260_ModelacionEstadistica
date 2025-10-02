@@ -1,4 +1,4 @@
-NOMBRE_CAMPO,,TIPO,NEMÓNICO,CATÁLOGO,RANGO_CLAVES   
+NOMBRE_CAMPO,,TIPO,NEMONICO,CATÁLOGO,RANGO_CLAVES   
 Folio ,,C,folio,,"1 Zona, 1...3 Estrato, Últimos 4 panel de rotación"
 Entidad ,,C,entidad,entidad ,01...32
 Control ,,C,control,,40001...41419
