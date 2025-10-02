@@ -18,7 +18,8 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
+#3 Explora las bases de datos:
+```{r 3 Explora las bases de datos}
 M19 = read.csv("Datos_molec_2019-1.csv")
 M20 = read.csv("Datos_molec_2020-1.csv")
 M21 = read.csv("Datos_molec_2021-1.csv")
@@ -55,6 +56,12 @@ install.packages("dplyr")
 library(dplyr)
 df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO","RANGO_CLAVES")
 View(df_caracteristicas_variable)
+
+```
+
+
+```{r 5 Selecciona el conjunto de datos a utilizar}
+
 ```
 
 ## Including Plots
