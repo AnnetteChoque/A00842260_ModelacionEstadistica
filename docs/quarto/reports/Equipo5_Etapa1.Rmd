@@ -83,5 +83,8 @@ View(df_caracteristicas_variable)
 M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+MA22final=na.omit(M22final)
+MA23final=na.omit(M23final)
+MA24final=na.omit(M24final)
 ```
 
