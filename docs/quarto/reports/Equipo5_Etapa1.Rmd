@@ -43,12 +43,16 @@ En esta investigación se busca la relación que existe entre el comportamiento 
 
 El objetivo de esta investigación viene de la identificación de un problema muy común en México. Se busca obtener evidencia a partir de ciertos datos para encontrar la raíz del problema y dar más oportunidad a darle solución. Este tema es de gran relevancia debido a que la lectura en México presenta un rezago significativo. Esta pregunta de investigación nos permite encontrar relaciones entre indicadores como el gasto en libros y la cantidad de libros leídos lo cual es clave para poder comprender porque la lectura en México no es una práctica más frecuente.
 
+En los adultos este rezago en la lectura se puede identificar con datos como el promedio de libros leídos y esto se puede deber a diferentes factores sociales, culturales y económicos. 
  Desde el punto de vista social la lectura fomenta la participación ciudadana y la inserción laboral, además organismos como la UNESCO han señalado que la lectura es una herramienta clave para alcanzar los Objetivos de Desarrollo Sostenible
-A partir de estudios como los realizados por De Hoyos, Estrada y Vargas (2021) han documentado cómo las desigualdades educativas limitan el acceso a la lectura y su fluidez.
+
+A partir de estudios como los realizados por De Hoyos, Estrada y Vargas (2021) han documentado que las desigualdades educativas limitan el acceso a la lectura y su fluidez, si se tiene un mayor nivel educativo normalmente se relaciona a mayor acceso a gran variedad de textos y libros con una variedad cultural mucho más amplia. Si analizamos también el factor de la posición laboral esto influye tanto en el tiempo que se tiene para dedicar a la lectura como en la cantidad de dinero que se dispone para la compra de libros
 
 Esta pregunta abarca temas y características del lector como la edad ya que tal como lo dice La Revista Transdigital (2022) el fomento a la lectura debe adaptarse a lo contemporáneo. También algunos proyectos como CAIINNO (2022) resaltan lo importante que es el momento a la lectura desde edad temprana y así evitar los problemas en la educación a futuro. 
 
-Esta investigación es de suma importancia pues puede ayudar a dar mejor enfoque a programas especializados y orientar políticas públicas. 
+En la pregunta de investigación se incluye el sexo del lector como posible factor influyente en la cantidad de libros leidos y el gasto en ellos pues aun es grande la brecha de género en México y esto puede representar cierta tendencia en esos datos. 
+
+Esta investigación es de suma importancia pues puede ayudar a dar mejor enfoque a programas especializados y orientar políticas públicas para que tengan objetivos más claros en base a las brechas y problemas identificados. 
 
 
 ## Exploración de la base de datos
@@ -88,8 +92,6 @@ D24 = read.csv("Diccionario_molec_2024-1.csv")
 
 df_caracteristicas_variable = D24%>%select("NOMBRE_CAMPO", "TIPO", "NEMONICO","RANGO_CLAVES")
 View(df_caracteristicas_variable)
-
-
 ```
 
 ## Seleccion del conjunto de datos a utilizar y los años 
