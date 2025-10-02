@@ -68,8 +68,6 @@ colnames(M19) #muestra la lista de nombres de las variables
 str(M19) #determina el tipo de cada variable (categórico/numérico)
 
 
-View(M19) #se mostrará una hoja electrónica aparte con los datos
-
 #dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
 install.packages("dplyr")
 library(dplyr)
@@ -79,10 +77,16 @@ View(df_caracteristicas_variable)
 ```
 
 
+#5 Selecciona el conjunto de datos a utilizar y los años 
 ```{r 5 Selecciona el conjunto de datos a utilizar}
+
+#Años seleccionados: 2022, 2023, 2024
+#Variables seleccionadas: nivel, cond_activ, sexo, edad, p7_3, p4, p5
+
 M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+
 MA22final=na.omit(M22final)
 MA23final=na.omit(M23final)
 MA24final=na.omit(M24final)
