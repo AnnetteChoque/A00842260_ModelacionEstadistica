@@ -39,7 +39,8 @@ La Revista Transdigital (2022) enfatiza que los programas de fomento lector debe
 En conclusión, medir la lectura en México a través del MOLEC es un paso indispensable para diagnosticar la situación nacional y orientar políticas públicas. Sin embargo, la evidencia disponible muestra que persisten importantes rezagos en cuanto a la práctica y comprensión lectora. Mientras tanto, instituciones como el Tecnológico de Monterrey aportan modelos de fomento que buscan transformar la relación con los textos, pero el desafío requiere una estrategia conjunta entre Estado, instituciones educativas y sociedad civil. Solo así podrá avanzarse hacia una cultura lectora sólida y sostenible en México.
 
 
-```{r cars}
+#3 Explora las bases de datos:
+```{r 3 Explora las bases de datos}
 M19 = read.csv("Datos_molec_2019-1.csv")
 M20 = read.csv("Datos_molec_2020-1.csv")
 M21 = read.csv("Datos_molec_2021-1.csv")
@@ -61,6 +62,7 @@ dim(M21)
 dim(M22)
 dim(M23)
 dim(M24)
+<<<<<<< HEAD
 
 names(M24) #muestra la lista de nombres de las variables
 View(M22) #se mostrará una hoja electrónica aparte con los datos
@@ -75,15 +77,18 @@ df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO",
 View(df_caracteristicas_variable)
 ```
 
-
+#5 Selecciona el conjunto de datos a utilizar y los años 
 ```{r 5 Selecciona el conjunto de datos a utilizar}
+
+#Años seleccionados: 2022, 2023, 2024
+#Variables seleccionadas: nivel, cond_activ, sexo, edad, p7_3, p4, p5
+
 M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+
 MA22final=na.omit(M22final)
 MA23final=na.omit(M23final)
 MA24final=na.omit(M24final)
-```
-
 ```
 
