@@ -11,6 +11,7 @@ date: "2025-10-01"
 output:
   pdf_document: default
   word_document: default
+fontsize: 12pt
 ---
 
 ```{r setup, include=FALSE}
