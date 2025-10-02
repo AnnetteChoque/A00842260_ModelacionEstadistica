@@ -75,6 +75,8 @@ View(M24)
 
 df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO","RANGO_CLAVES")
 View(df_caracteristicas_variable)
+
+
 ```
 
 #5 Selecciona el conjunto de datos a utilizar y los años 
