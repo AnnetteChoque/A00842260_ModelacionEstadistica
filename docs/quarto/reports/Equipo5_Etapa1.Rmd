@@ -92,3 +92,27 @@ MA24final=na.omit(M24final)
 
 ```
 
+## Referencias
+
+1. De Estadística Y, I. N. (2015). Módulo sobre Lectura (MOLEC). https://www.inegi.org.mx/programas/molec/
+
+2. Orozco, R. M., Anguiano, J. C. R., & Alvarado, A. H. (2025). Estrategias para incrementar la lectura y las investigaciones en universitarios de la Licenciatura en Mercadotecnia y Administración. Transdigital, 6(12), e478.
+
+3. ENLACE primaria – CAIINNO. (s.f.). https://www.caiinno.org/enlace-primaria/
+
+4. Pichardo, A. P. (2015). Repositorio UNAM. La comprensión lectora en la evaluación nacional del logro académico en centros escolares de la educación media superior
+
+5. Secretaría de Educación Pública. (6 de julio de 2020). Programa sectorial de educación 2020-2024. Avance y resultados 2021. Diario Oficial. 
+
+6. De Hoyos, R., Estrada, R., & Vargas, M. J. (2021). What do test scores really capture? Evidence from a large-scale student assessment in Mexico. World Development, 146, 105524.
+
+7. MUxED. (2025). La evaluación de la fluidez lectora en México — MUxED. MUxED.
+https://www.muxed.mx/blog/fluidez-lectora
+
+8. Tecnológico de Monterrey. (2025). Pasión por la lectura. Tecnológico De Monterrey. https://tec.mx/es/pasion-por-la-lectura
+
+9. Cátedra Alfonso Reyes | Tecnológico de Monterrey. (2023). 
+https://catedraalfonsoreyes.tec.mx/es
+
+10. Inicio | Ediciones Tecnológico de Monterrey. (2022). 
+https://ediciones.tec.mx/es
