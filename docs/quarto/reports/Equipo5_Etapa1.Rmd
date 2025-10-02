@@ -20,8 +20,29 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r cars}
 M19 = read.csv("Datos_molec_2019-1.csv")
+M20 = read.csv("Datos_molec_2020-1.csv")
+M21 = read.csv("Datos_molec_2021-1.csv")
+M22 = read.csv("Datos_molec_2022-1.csv")
+M23 = read.csv("Datos_molec_2023-1.csv")
+M24 = read.csv("Datos_molec_2024-1.csv")
+
 D19 = read.csv("Diccionario_molec_2019-1.csv")
-ecuacion = sum(asdas)
+D20 = read.csv("Diccionario_molec_2020-1.csv")
+D21 = read.csv("Diccionario_molec_2021-1.csv")
+D22 = read.csv("Diccionario_molec_2022-1.csv")
+D23 = read.csv("Diccionario_molec_2023-1.csv")
+D24 = read.csv("Diccionario_molec_2024-1.csv")
+
+#Dimensión de cada base de datos (anual):
+dim(M19)
+dim(M20)
+dim(M21)
+dim(M21)
+dim(M22)
+dim(M23)
+dim(M24)
+#108 variables en todas las bases de datos
+
 
 names(M19) #muestra la lista de nombres de las variables
 View(M19) #se mostrará una hoja electrónica aparte con los datos
