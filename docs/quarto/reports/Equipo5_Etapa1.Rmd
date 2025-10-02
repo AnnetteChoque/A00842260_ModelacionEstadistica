@@ -54,8 +54,12 @@ En la pregunta de investigación se incluye el sexo del lector como posible fact
 
 Esta investigación es de suma importancia pues puede ayudar a dar mejor enfoque a programas especializados y orientar políticas públicas para que tengan objetivos más claros en base a las brechas y problemas identificados. 
 
+## Descripción de los datos
 
-## Exploración de la base de datos
+Las bases de datos proporcionadas recopilan las respuestas de una población encuestada durante el periodo de 2019 al 2024. Sin embargo, para llevar a cabo esta investigación, se utilizaron las bases de datos correspondientes a los años 2022 a 2024, proporcionadas por el INEGI. Cada base de datos contiene información recolectada mediante encuestas con el objetivo de medir el comportamiento lector de la población mexicana. Cada una contiene 108 variables por año, con un número de registros que oscila de entre 1948 y 2016 observaciones anuales. Las preguntas de la encuesta realizada están centradas en los hábitos de lectura, frecuencia, lugares, y motivos de las personas para la lectura en México. La finalidad de estas preguntas es analizar los patrones de lectura en la población mexicana.
+
+Analizando a detalle las bases de datos, podemos identificar ciertos patrones en los mexicanos, como si estos acostumbran a leer, que leen, si es por gusto, o los lugares. También incluye información como el tiempo designado a leer, la comprensión lectora, al igual que la realización de esta actividad en la infancia en sitios como el hogar o la escuela. Esto permitirá explorar diferencias y tendencias entre distintos grupos de la población.
+
 ```{r 3 Explora las bases de datos}
 M19 = read.csv("Datos_molec_2019-1.csv")
 M20 = read.csv("Datos_molec_2020-1.csv")
