@@ -63,6 +63,7 @@ View(M24)
 #108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
 
 ```
+
 ```{r}
 #dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
 D19 = read.csv("Diccionario_molec_2019-1.csv")
@@ -78,7 +79,7 @@ View(df_caracteristicas_variable)
 
 ```
 
-#5 Selecciona el conjunto de datos a utilizar y los años 
+## Seleccion del conjunto de datos a utilizar y los años 
 ```{r 5 Selecciona el conjunto de datos a utilizar}
 
 #Años seleccionados: 2022, 2023, 2024
