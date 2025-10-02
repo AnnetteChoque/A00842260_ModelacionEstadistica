@@ -41,12 +41,20 @@ dim(M21)
 dim(M22)
 dim(M23)
 dim(M24)
-#108 variables en todas las bases de datos
+#108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
 
 
-names(M19) #muestra la lista de nombres de las variables
+colnames(M19) #muestra la lista de nombres de las variables
+str(M19) #determina el tipo de cada variable (categórico/numérico)
+
+
 View(M19) #se mostrará una hoja electrónica aparte con los datos
 
+#dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+install.packages("dplyr")
+library(dplyr)
+df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO","RANGO_CLAVES")
+View(df_caracteristicas_variable)
 ```
 
 ## Including Plots
