@@ -15,6 +15,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+install.packages("dplyr")
+library(dplyr)
 ```
 
 ## Introducción
@@ -56,15 +58,32 @@ D24 = read.csv("Diccionario_molec_2024-1.csv")
 dim(M19)
 dim(M20)
 dim(M21)
-dim(M21)
 dim(M22)
 dim(M23)
 dim(M24)
-#108 variables en todas las bases de datos
+
+names(M24) #muestra la lista de nombres de las variables
+View(M22) #se mostrará una hoja electrónica aparte con los datos
+View(M23)
+View(M24)
+
+#108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
+
+#dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+
+df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO","RANGO_CLAVES")
+View(df_caracteristicas_variable)
+```
 
 
-names(M19) #muestra la lista de nombres de las variables
-View(M19) #se mostrará una hoja electrónica aparte con los datos
+```{r 5 Selecciona el conjunto de datos a utilizar}
+M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+MA22final=na.omit(M22final)
+MA23final=na.omit(M23final)
+MA24final=na.omit(M24final)
+```
 
 ```
 
