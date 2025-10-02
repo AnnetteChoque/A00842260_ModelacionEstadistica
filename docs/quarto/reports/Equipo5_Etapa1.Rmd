@@ -37,6 +37,19 @@ La Revista Transdigital (2022) enfatiza que los programas de fomento lector debe
 
 En conclusión, medir la lectura en México a través del MOLEC es un paso indispensable para diagnosticar la situación nacional y orientar políticas públicas. Sin embargo, la evidencia disponible muestra que persisten importantes rezagos en cuanto a la práctica y comprensión lectora. Mientras tanto, instituciones como el Tecnológico de Monterrey aportan modelos de fomento que buscan transformar la relación con los textos, pero el desafío requiere una estrategia conjunta entre Estado, instituciones educativas y sociedad civil. Solo así podrá avanzarse hacia una cultura lectora sólida y sostenible en México.
 
+## Objetivo de la investigación
+
+En esta investigación se busca la relación que existe entre el comportamiento de los lectores en México y los factores sociodemográficos y económicos. En particular esta investigación se centra en la pregunta: ¿Cómo influyen el nivel educativo, la condición de actividad económica, el sexo y la edad en el gasto en libros y la cantidad de libros leídos por adultos mexicanos que reportan leer por gusto?
+
+El objetivo de esta investigación viene de la identificación de un problema muy común en México. Se busca obtener evidencia a partir de ciertos datos para encontrar la raíz del problema y dar más oportunidad a darle solución. Este tema es de gran relevancia debido a que la lectura en México presenta un rezago significativo. Esta pregunta de investigación nos permite encontrar relaciones entre indicadores como el gasto en libros y la cantidad de libros leídos lo cual es clave para poder comprender porque la lectura en México no es una práctica más frecuente.
+
+ Desde el punto de vista social la lectura fomenta la participación ciudadana y la inserción laboral, además organismos como la UNESCO han señalado que la lectura es una herramienta clave para alcanzar los Objetivos de Desarrollo Sostenible
+A partir de estudios como los realizados por De Hoyos, Estrada y Vargas (2021) han documentado cómo las desigualdades educativas limitan el acceso a la lectura y su fluidez.
+
+Esta pregunta abarca temas y características del lector como la edad ya que tal como lo dice La Revista Transdigital (2022) el fomento a la lectura debe adaptarse a lo contemporáneo. También algunos proyectos como CAIINNO (2022) resaltan lo importante que es el momento a la lectura desde edad temprana y así evitar los problemas en la educación a futuro. 
+
+Esta investigación es de suma importancia pues puede ayudar a dar mejor enfoque a programas especializados y orientar políticas públicas. 
+
 
 ## Exploración de la base de datos
 ```{r 3 Explora las bases de datos}
