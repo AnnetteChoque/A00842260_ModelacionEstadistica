@@ -15,7 +15,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages("dplyr")
 library(dplyr)
 ```
 
@@ -39,7 +38,7 @@ La Revista Transdigital (2022) enfatiza que los programas de fomento lector debe
 En conclusión, medir la lectura en México a través del MOLEC es un paso indispensable para diagnosticar la situación nacional y orientar políticas públicas. Sin embargo, la evidencia disponible muestra que persisten importantes rezagos en cuanto a la práctica y comprensión lectora. Mientras tanto, instituciones como el Tecnológico de Monterrey aportan modelos de fomento que buscan transformar la relación con los textos, pero el desafío requiere una estrategia conjunta entre Estado, instituciones educativas y sociedad civil. Solo así podrá avanzarse hacia una cultura lectora sólida y sostenible en México.
 
 
-#3 Explora las bases de datos:
+## Exploración de la base de datos
 ```{r 3 Explora las bases de datos}
 M19 = read.csv("Datos_molec_2019-1.csv")
 M20 = read.csv("Datos_molec_2020-1.csv")
@@ -48,13 +47,6 @@ M22 = read.csv("Datos_molec_2022-1.csv")
 M23 = read.csv("Datos_molec_2023-1.csv")
 M24 = read.csv("Datos_molec_2024-1.csv")
 
-D19 = read.csv("Diccionario_molec_2019-1.csv")
-D20 = read.csv("Diccionario_molec_2020-1.csv")
-D21 = read.csv("Diccionario_molec_2021-1.csv")
-D22 = read.csv("Diccionario_molec_2022-1.csv")
-D23 = read.csv("Diccionario_molec_2023-1.csv")
-D24 = read.csv("Diccionario_molec_2024-1.csv")
-
 #Dimensión de cada base de datos (anual):
 dim(M19)
 dim(M20)
@@ -62,7 +54,6 @@ dim(M21)
 dim(M22)
 dim(M23)
 dim(M24)
-<<<<<<< HEAD
 
 names(M24) #muestra la lista de nombres de las variables
 View(M22) #se mostrará una hoja electrónica aparte con los datos
@@ -71,9 +62,17 @@ View(M24)
 
 #108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
 
+```
+```{r}
 #dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+D19 = read.csv("Diccionario_molec_2019-1.csv")
+D20 = read.csv("Diccionario_molec_2020-1.csv")
+D21 = read.csv("Diccionario_molec_2021-1.csv")
+D22 = read.csv("Diccionario_molec_2022-1.csv")
+D23 = read.csv("Diccionario_molec_2023-1.csv")
+D24 = read.csv("Diccionario_molec_2024-1.csv")
 
-df_caracteristicas_variable = D19%>%select("NOMBRE_CAMPO", "TIPO", "MNEMÓNICO","RANGO_CLAVES")
+df_caracteristicas_variable = D24%>%select("NOMBRE_CAMPO", "TIPO", "NEMONICO","RANGO_CLAVES")
 View(df_caracteristicas_variable)
 
 
@@ -92,5 +91,6 @@ M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 MA22final=na.omit(M22final)
 MA23final=na.omit(M23final)
 MA24final=na.omit(M24final)
+
 ```
 
