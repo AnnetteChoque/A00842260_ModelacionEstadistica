@@ -1,0 +1,70 @@
+---
+title: 'Etapa 2: Comprensión y preparación de datos'
+author:
+  - Mariana Hernández Jiménez   |   A00841920
+  - Andrea Estefanía De la Peña Contreras  |  A00840973
+  - Carolina Navarro Barrón   |   A00839486
+  - Annette Abigail Choque Millán   |  A00842260
+  - Maricarmen Terán Maturino   |   A00841435
+date: "2025-10-09"
+output:
+  pdf_document: default
+  word_document: default
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE, include = FALSE}
+M19 = read.csv("Datos_molec_2019-1.csv")
+M20 = read.csv("Datos_molec_2020-1.csv")
+M21 = read.csv("Datos_molec_2021-1.csv")
+M22 = read.csv("Datos_molec_2022-1.csv")
+M23 = read.csv("Datos_molec_2023-1.csv")
+M24 = read.csv("Datos_molec_2024-1.csv")
+
+#Dimensión de cada base de datos (anual):
+dim(M19)
+dim(M20)
+dim(M21)
+dim(M22)
+dim(M23)
+dim(M24)
+
+names(M24) #muestra la lista de nombres de las variables
+View(M22) #se mostrará una hoja electrónica aparte con los datos
+View(M23)
+View(M24)
+
+#108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
+```
+
+```{r, echo = FALSE, include = FALSE}
+#dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+D19 = read.csv("Diccionario_molec_2019-1.csv")
+D20 = read.csv("Diccionario_molec_2020-1.csv")
+D21 = read.csv("Diccionario_molec_2021-1.csv")
+D22 = read.csv("Diccionario_molec_2022-1.csv")
+D23 = read.csv("Diccionario_molec_2023-1.csv")
+D24 = read.csv("Diccionario_molec_2024-1.csv")
+
+df_caracteristicas_variable = D24%>%select("NOMBRE_CAMPO", "TIPO", "NEMONICO","RANGO_CLAVES")
+View(df_caracteristicas_variable)
+```
+
+## Seleccion del conjunto de datos a utilizar y los años 
+```{r, echo = FALSE, include = FALSE}
+
+#Años seleccionados: 2022, 2023, 2024
+#Variables seleccionadas: nivel, cond_activ, sexo, edad, p7_3, p4, p5
+
+M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+
+MA22final=na.omit(M22final)
+MA23final=na.omit(M23final)
+MA24final=na.omit(M24final)
+```
