@@ -8,16 +8,16 @@ author:
   - Maricarmen Terán Maturino   |   A00841435
 date: "2025-10-01"
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
 fontsize: 12pt
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(dplyr)
-library(knitr)
-library(kableExtra)
+library(flextable)
+library(tibble)
 ```
 
 ## Introducción
@@ -139,38 +139,15 @@ MA24final=na.omit(M24final)
 
 A continuación, se presenta una tabla con las siete variables seleccionadas para esta investigación, junto con su descripción, tipo y valores posibles según el diccionario del MOLEC.
 
-```{r tabla-variables, echo=FALSE, warning=FALSE}
+### Variables seleccionadas
 
-tabla_vars <- data.frame(
-  Variable = c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5"),
-  Tipo = c("Categórica", "Categórica", "Categórica", "Cuantitativa", "Cuantitativa", "Cuantitativa", "Categórica"),
-  Descripción = c(
-    "Nivel educativo alcanzado por el encuestado",
-    "Condición de actividad económica en la última semana",
-    "Sexo del encuestado",
-    "Edad del encuestado en años cumplidos",
-    "Monto gastado en libros en los últimos 12 meses (pesos mexicanos)",
-    "Número de libros leídos completos en los últimos 12 meses",
-    "Motivo principal de lectura"
-  ),
-  `Valores posibles` = c(
-    "00 = Ninguno\n01 = Preescolar\n02 = Primaria\n03 = Secundaria\n04 = Preparatoria o bachillerato\n05 = Normal básica\n06 = Carrera técnica\n07 = Profesional\n08 = Maestría\n09 = Doctorado\n99 = No sabe\nb = Blanco por pase",
-    "01 = Trabajó para obtener ingresos\n02 = Trabajó sin pago ayudando en el negocio o actividad familiar\n03 = No trabajó, pero sí tenía trabajo\n04 = Buscó trabajo\n05 = Está en espera de que le resuelvan una solicitud de trabajo\n06 = Es estudiante\n07 = Se dedica a los quehaceres del hogar\n08 = Es jubilado(a) o pensionado(a)\n09 = Está incapacitado(a) permanentemente para trabajar\n10 = Otra situación\n99 = No especificado",
-    "1 = Hombre\n2 = Mujer",
-    "18–98",
-    "b = Blanco por pase\n000030 - 015000 (pesos)\n999999 = No sabe",
-    "01 - 70 = Libros\nb = Blanco por pase",
-    "1 = Por trabajo\n2 = Por estudio\n3 = Por cultura general o por estar al día\n4 = Por gusto o por entretenimiento\n5 = Por religión\n6 = Otro\nb = Blanco por pase"
-  )
-)
+A continuación, se presenta una tabla con las siete variables seleccionadas para esta investigación, junto con su descripción, tipo y valores posibles según el diccionario del MOLEC.
 
-kable(tabla_vars, 
-      caption = "Variables seleccionadas para el análisis",
-      col.names = c("Variable", "Tipo", "Descripción", "Valores posibles")) %>%
-  kable_styling(full_width = FALSE, position = "left") %>%
-  column_spec(1, bold = TRUE, width = "10em") %>%
-  column_spec(3, width = "18em")
-```
+### Variables seleccionadas
+
+A continuación, se presenta una tabla con las siete variables seleccionadas para esta investigación, junto con su descripción, tipo y valores posibles según el diccionario del MOLEC.
+
+
 
 ## Referencias
 
