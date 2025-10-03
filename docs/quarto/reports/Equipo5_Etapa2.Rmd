@@ -47,7 +47,7 @@ View(M24)
 ```
 
 ```{r, echo = FALSE, include = FALSE}
-#dataframe con las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+#dataframe con las variables, incluyendo su nombre, tipo (categórico/Numérico) y valores posibles que puede tomar
 D19 = read.csv("Diccionario_molec_2019-1.csv")
 D20 = read.csv("Diccionario_molec_2020-1.csv")
 D21 = read.csv("Diccionario_molec_2021-1.csv")
@@ -150,4 +150,11 @@ M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
 MA22final=na.omit(M22final)
 MA23final=na.omit(M23final)
 MA24final=na.omit(M24final)
+
+#dataframe con las variables seleccionadas, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+
+variables_seleccionadas = c("nivel ","Cond_activ","sexo","edad","P7_3", "p4", "p5" )
+df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
+
+
 ```
