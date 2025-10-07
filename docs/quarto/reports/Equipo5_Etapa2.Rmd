@@ -156,6 +156,4 @@ MA24final=na.omit(M24final)
 variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
 df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
 View(df_caracteristicas_variable_seleccionadas)
-
-
 ```
