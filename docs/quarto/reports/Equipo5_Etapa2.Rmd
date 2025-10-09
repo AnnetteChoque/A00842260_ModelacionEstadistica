@@ -156,8 +156,17 @@ MA24final=na.omit(M24final)
 variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
 df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
 View(df_caracteristicas_variable_seleccionadas)
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3f212582a65778db5e87cf6d62b340dd7c0f133e
 ```
 
+<<<<<<< HEAD
+scatterplot
+=======
 ## Analisis de Datos cuantitativos para 2022, 2023 y 2024
 
 ```{r}
@@ -289,3 +298,8 @@ kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
 
 
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> e073fdde64319284d874175252566b23c466b63b
+>>>>>>> 3f212582a65778db5e87cf6d62b340dd7c0f133e
