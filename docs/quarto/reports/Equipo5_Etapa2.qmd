@@ -191,7 +191,10 @@ scatterplot
 
 ## Exploración de los datos
 
-```{r, include=FALSE}
+En la primera etapa del estudio se definieron las variables de análisis que permitirán dar respuesta a la pregunta de investigación. Estas corresponden al nivel educativo alcanzado por el encuestado, la condición de actividad económica en la última semana, el sexo, la edad en años cumplidos, el monto gastado en libros durante los últimos 12 meses, el número de libros leídos en el mismo periodo y el motivo principal de lectura. A partir de la exploración y análisis de estas variables, fue posible identificar tendencias generales y características estadísticas que se presentan a continuación.
+
+
+```{r, echo=FALSE}
 
 analisis_cuant = function(x){
   x = as.numeric(x)
@@ -261,6 +264,15 @@ kable(tabla_cuant_todos, caption = "Medidas descriptivas de las variables cuanti
 
 
 ```
+La edad de los encuestados se distribuye de manera bastante estable a lo largo de los tres años. La media se mantiene cercana a 42 años, con una mediana de 39–41 años, lo que indica que la mayoría de la población se concentra en la adultez media, con un descenso gradual hacia edades más avanzadas. Estadísticamente, la distribución de la edad se comporta de forma aproximadamente normal, con ligeros sesgos hacia edades mayores pero sin cambios significativos entre los distintos años.
+
+El gasto anual en libros presenta un patrón muy marcado y constante: la mayor parte de los adultos no reporta haber destinado recursos a la compra de libros, lo que se refleja en una mediana en cero en todos los años. Sin embargo, existe un grupo reducido de individuos que sí invierte grandes cantidades, generando valores atípicos que elevan la media y producen distribuciones altamente asimétricas.
+
+El número de libros leídos también mantiene un comportamiento estable a lo largo de los años: La mediana es de 2–3 libros al año, mientras que la media oscila entre 3.6 y 4.6 libros.La mayoría de los encuestados reporta no haber leído ningún libro en el último año, mientras que unos pocos casos concentran los valores más altos. Esto provoca distribuciones sesgadas hacia la derecha, con gran concentración en valores bajos y la presencia de lectores intensivos como casos atípicos. Al igual que en el gasto, el patrón se repite año con año, lo que sugiere que los hábitos de lectura por gusto se mantienen reducidos en la población general.
+
+Las variables cualitativas (que abarcan nivel educativo, condición de actividad económica, sexo y motivo de lectura) aportan el contexto sociodemográfico y no muestran cambios sustanciales entre los distintos años. El nivel educativo se concentra en educación básica y media, con baja representación de posgrados; la condición de actividad económica refleja mayor presencia de personas que trabajan o estudian; el sexo se mantiene con proporciones similares entre hombres y mujeres; y el motivo principal de lectura filtrado en este estudio asegura que el análisis se enfoque en quienes leen por gusto, evitando confusión con lecturas por obligación laboral o escolar.
+
+Estos patrones se repiten año tras año, lo que sugiere que los hábitos de lectura por gusto siguen siendo limitados en la población general, a pesar de los esfuerzos institucionales por fomentarlos.
 
 ## Visualización de variables cuantitativas
 
