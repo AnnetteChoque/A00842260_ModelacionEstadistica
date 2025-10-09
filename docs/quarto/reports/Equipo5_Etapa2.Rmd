@@ -23,17 +23,11 @@ library(kableExtra)
 ## Preparación de los datos
 
 ```{r, echo = FALSE, include = FALSE}
-M19 = read.csv("Datos_molec_2019-1.csv")
-M20 = read.csv("Datos_molec_2020-1.csv")
-M21 = read.csv("Datos_molec_2021-1.csv")
 M22 = read.csv("Datos_molec_2022-1.csv")
 M23 = read.csv("Datos_molec_2023-1.csv")
 M24 = read.csv("Datos_molec_2024-1.csv")
 
 #Dimensión de cada base de datos (anual):
-dim(M19)
-dim(M20)
-dim(M21)
 dim(M22)
 dim(M23)
 dim(M24)
@@ -48,9 +42,6 @@ View(M24)
 
 ```{r, echo = FALSE, include = FALSE}
 #dataframe con las variables, incluyendo su nombre, tipo (categórico/Numérico) y valores posibles que puede tomar
-D19 = read.csv("Diccionario_molec_2019-1.csv")
-D20 = read.csv("Diccionario_molec_2020-1.csv")
-D21 = read.csv("Diccionario_molec_2021-1.csv")
 D22 = read.csv("Diccionario_molec_2022-1.csv")
 D23 = read.csv("Diccionario_molec_2023-1.csv")
 D24 = read.csv("Diccionario_molec_2024-1.csv")
@@ -156,17 +147,11 @@ MA24final=na.omit(M24final)
 variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
 df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
 View(df_caracteristicas_variable_seleccionadas)
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 3f212582a65778db5e87cf6d62b340dd7c0f133e
 ```
 
-<<<<<<< HEAD
+
 scatterplot
-=======
+
 ## Analisis de Datos cuantitativos para 2022, 2023 y 2024
 
 ```{r}
@@ -298,8 +283,4 @@ kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
 
 
 ```
-<<<<<<< HEAD
-=======
 
->>>>>>> e073fdde64319284d874175252566b23c466b63b
->>>>>>> 3f212582a65778db5e87cf6d62b340dd7c0f133e
