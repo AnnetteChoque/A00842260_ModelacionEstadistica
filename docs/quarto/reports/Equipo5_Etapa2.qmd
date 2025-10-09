@@ -26,7 +26,9 @@ Para lograr este objetivo, se aplicarán técnicas estadísticas descriptivas, i
 
 ## Descripción de las variables y sus características estadísticas
 
-Como se mencionó, se utilizaron las bases de datos del Módulo de Lectura (MOLEC) correspondientes a los años 2022, 2023 y 2024. Cada base anual contiene 108 variables y un número de registros que oscila entre 1,996 y 2,016 observaciones.
+#### Dimensión del conjunto de datos
+
+Como se mencionó, se utilizaron las bases de datos del Módulo de Lectura (MOLEC) correspondientes a los años 2022, 2023 y 2024. Cada base anual contiene 108 variables y un número de registros que oscila entre 1,996 y 2,016 observaciones. Tras seleccionar únicamente las 7 variables de interés (nivel, cond_act, sexo, edad, p4, p7_3, p5) y aplicar los criterios de filtrado y limpieza descritos a continuación, se obtuvieron las siguientes dimensiones:
 
 ```{r, include = FALSE}
 M22 = read.csv("Datos_molec_2022-1.csv")
@@ -92,6 +94,22 @@ View(df_caracteristicas_variable_seleccionadas)
 
 #108 variables en todas las bases de datos, con registros que rondan entre 1996 y 2016 anuales.
 ```
+
+| Año  | Registros iniciales | Registros tras filtrado |
+|------|---------------------|-------------------------|
+| 2022 | 2016                | 140                     |
+| 2023 | 1996                | 135                     |
+| 2024 | 2016                | 115                     |
+
+: Tabla 1. Dimensiones de las bases de datos
+
+#### Filtrado en los datos
+
+Para poder tener bien definidas las variables puntuales que se usarán en la investigación, sefiltraron ciertos datos, por ejemplo:
+
+* En la encuesta, los valores como "b" y códigos como 99 o 999999 indican “no sabe”, “no especificado” o “no aplica”. Estos se consideraron datos inválidos para el análisis.
+
+* En el caso de la pergunta 5, solo se conservaron los registros donde p5=4 ("lee por gusto"), ya que el objetivo se centra en la lectura voluntaria.
 
 ### Variables de interés
 
