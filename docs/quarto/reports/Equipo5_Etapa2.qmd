@@ -86,6 +86,10 @@ View(M22_limpio)
 View(M23_limpio)
 View(M24_limpio)
 
+write.csv(M22_limpio,"Datos2022Limpios.csv",row.names=FALSE)
+write.csv(M23_limpio,"Datos2023Limpios.csv",row.names=FALSE)
+write.csv(M24_limpio,"Datos2024Limpios.csv",row.names=FALSE)
+
 #dataframe con las variables seleccionadas, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
 
 variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
@@ -107,86 +111,65 @@ View(df_caracteristicas_variable_seleccionadas)
 
 Para poder tener bien definidas las variables puntuales que se usarán en la investigación, sefiltraron ciertos datos, por ejemplo:
 
-* En la encuesta, los valores como "b" y códigos como 99 o 999999 indican “no sabe”, “no especificado” o “no aplica”. Estos se consideraron datos inválidos para el análisis.
+-   En la encuesta, los valores como "b" y códigos como 99 o 999999 indican “no sabe”, “no especificado” o “no aplica”. Estos se consideraron datos inválidos para el análisis.
 
-* En el caso de la pergunta 5, solo se conservaron los registros donde p5=4 ("lee por gusto"), ya que el objetivo se centra en la lectura voluntaria.
+-   En el caso de la pergunta 5, solo se conservaron los registros donde p5=4 ("lee por gusto"), ya que el objetivo se centra en la lectura voluntaria.
 
-### Variables de interés
+#### Descripción de las variables
 
-```{r}
-tabla <- data.frame(
-  Nombre = c(
-    "nivel",
-    "cond_activ",
-    "sexo",
-    "edad",
-    "p7_3",
-    "p4",
-    "p5"
-  ),
-  Tipo = c(
-    "Categórica",
-    "Categórica",
-    "Categórica",
-    "Cuantitativa",
-    "Cuantitativa",
-    "Cuantitativa",
-    "Categórica"
-  ),
-  Valores = c(
-    # nivel
-    "00 = Ninguno \n
-01 = Preescolar \n
-02 = Primaria \n
-03 = Secundaria \n
-04 = Preparatoria o bachillerato \n
-05 = Normal básica \n
-06 = Carrera técnica \n
-07 = Profesional \n
-08 = Maestría \n
-09 = Doctorado \n
-99 = No sabe \n
-b = Blanco por pase",
-    # cond_activ
-    "01 = trabajó para obtener ingresos \n
-02 = trabajó sin pago ayudando en el negocio o actividad que desempeña un familiar \n
-03 = no trabajó, pero sí tenía trabajo \n
-04 = buscó trabajo \n
-05 = está en espera de que le resuelvan una solicitud de un trabajo al que acudió \n
-06 = es estudiante \n
-07 = se dedica a los quehaceres de su hogar \n
-08 = es jubilado(a) o pensionado(a) \n
-09 = está incapacitado(a) permanentemente para trabajar \n
-10 = Otra situación \n
-99 = No especificado",
-    # sexo
-    "1 = Hombre \n
-2 = Mujer",
-    # edad
-    "18 - 98",
-    # p7_3
-    "b = Blanco por pase \n
-000030 - 015000 (pesos) \n
-999999 = No sabe",
-    # p4
-    "01 - 70 = Libros \n
-b = Blanco por pase",
-    # p5
-    "1 = Por trabajo \n
-2 = Por estudio \n
-3 = Por cultura general o por estar al día \n
-4 = Por gusto o por entretenimiento \n
-5 = Por religión \n
-6 = Otro \n
-b = Blanco por pase"
-  )
-)
+La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores posibles antes del filtrado (2022–2024)
 
-kable(tabla, escape = FALSE,
-      col.names = c("Nombre","Tipo","Valores que puede tomar")) %>%
-  kable_styling(full_width = TRUE, bootstrap_options = c("striped","hover"))
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| Nombre   | Tipo         | Descripción                                                                      | Valores que puede tomar                                                             |
++==========+==============+==================================================================================+=====================================================================================+
+| nivel    | Categórica   | Nivel educativo alcanzado por el encuestado                                      | | 00 = Ninguno                                                                      |
+|          |              |                                                                                  | | 01 = Preescolar                                                                   |
+|          |              |                                                                                  | | 02 = Primaria                                                                     |
+|          |              |                                                                                  | | 03 = Secundaria                                                                   |
+|          |              |                                                                                  | | 04 = Preparatoria o bachillerato                                                  |
+|          |              |                                                                                  | | 05 = Normal básica                                                                |
+|          |              |                                                                                  | | 06 = Carrera técnica                                                              |
+|          |              |                                                                                  | | 07 = Profesional                                                                  |
+|          |              |                                                                                  | | 08 = Maestría                                                                     |
+|          |              |                                                                                  | | 09 = Doctorado                                                                    |
+|          |              |                                                                                  | | 99 = No sabe                                                                      |
+|          |              |                                                                                  | | b = Blanco por pase                                                               |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| cond_act | Categórica   | Condición de actividad económica (ocupado, estudiante, etc.) en la última semana | | 01 = trabajó para obtener ingresos                                                |
+|          |              |                                                                                  | | 02 =  trabajó sin pago ayudando en el negocio o actividad que                     |
+|          |              |                                                                                  | | desempeña un familiar                                                             |
+|          |              |                                                                                  | | 03 = no trabajó, pero sí tenía trabajo                                            |
+|          |              |                                                                                  | | 04 = buscó trabajo                                                                |
+|          |              |                                                                                  | | 05 = esta en espera de que le resuelvan una solicitud de un trabajo al que acudió |
+|          |              |                                                                                  | | 06 = es estudiante                                                                |
+|          |              |                                                                                  | | 07 = se dedica a los quehaceres de su hogar                                       |
+|          |              |                                                                                  | | 08 = es jubilado(a) o pensionado(a)                                               |
+|          |              |                                                                                  | | 09 = esta incapacitado(a) permanentemente para trabajar                           |
+|          |              |                                                                                  | | 10 = Otra situación                                                               |
+|          |              |                                                                                  | | 99 = No especificado                                                              |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| sexo     | Categórica   | Sexo del encuestado                                                              | | 1 = Hombre                                                                        |
+|          |              |                                                                                  | | 2 = Mujer                                                                         |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| edad     | Cuantitativa | Edad del encuestado en años cumplidos                                            | 18 - 98                                                                             |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| p7_3     | Cuantitativa | Monto gastado en libros en los últimos 12 meses                                  | | b = Blanco por pase                                                               |
+|          |              |                                                                                  | | 000030 - 015000 (pesos)                                                           |
+|          |              |                                                                                  | | 999999 = No sabe                                                                  |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| p4       | Cuantitativa | Número de libros leídos en los últimos 12 meses                                  | | 01 - 70 = Libros                                                                  |
+|          |              |                                                                                  | | b = Blanco por pase                                                               |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| p5       | Categórica   | Motivo principal de lectura (filtrar por “por gusto”)                            | | 1 = Por trabajo                                                                   |
+|          |              |                                                                                  | | 2 = Por estudio                                                                   |
+|          |              |                                                                                  | | 3 = Por cultura general o por estar al día                                        |
+|          |              |                                                                                  | | 4 = Por gusto o por entretenimiento                                               |
+|          |              |                                                                                  | | 5 = Por religión                                                                  |
+|          |              |                                                                                  | | 6 = Otro                                                                          |
+|          |              |                                                                                  | | b = Blanco por pase                                                               |
++----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 
-```
+: Tabla 2. Descripción de variables
 
 scatterplot
 
