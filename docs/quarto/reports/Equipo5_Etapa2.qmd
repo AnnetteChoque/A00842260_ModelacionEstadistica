@@ -26,8 +26,9 @@ Para lograr este objetivo, se aplicarán técnicas estadísticas descriptivas, i
 
 ## Descripción de las variables y sus características estadísticas
 
-Como se mencionó, se utilizaron las bases de datos del Módulo de Lectura (MOLEC) correspondientes a los años 2022,2023 y 2024. Cada base anual contiene 108 variables y un número de registros que oscila entre 1,948 y 2,016 observaciones. 
-```{r, echo = FALSE, include = FALSE}
+Como se mencionó, se utilizaron las bases de datos del Módulo de Lectura (MOLEC) correspondientes a los años 2022, 2023 y 2024. Cada base anual contiene 108 variables y un número de registros que oscila entre 1,996 y 2,016 observaciones. 
+
+```{r, include = FALSE}
 M22 = read.csv("Datos_molec_2022-1.csv")
 M23 = read.csv("Datos_molec_2023-1.csv")
 M24 = read.csv("Datos_molec_2024-1.csv")
@@ -38,15 +39,7 @@ dim(M23)
 dim(M24)
 
 names(M24) #muestra la lista de nombres de las variables
-View(M22) #se mostrará una hoja electrónica aparte con los datos
-View(M23)
-View(M24)
 
-#108 variables en todas las bases de datos, con registros que rondan entre 1948 y 2016 anuales.
-cat("")
-```
-
-```{r, echo = FALSE, include = FALSE}
 #dataframe con las variables, incluyendo su nombre, tipo (categórico/Numérico) y valores posibles que puede tomar
 D22 = read.csv("Diccionario_molec_2022-1.csv")
 D23 = read.csv("Diccionario_molec_2023-1.csv")
@@ -54,6 +47,50 @@ D24 = read.csv("Diccionario_molec_2024-1.csv")
 
 df_caracteristicas_variable = D24%>%select("NOMBRE_CAMPO", "TIPO", "NEMONICO","RANGO_CLAVES")
 View(df_caracteristicas_variable)
+
+#Años seleccionados: 2022, 2023, 2024
+#Variables seleccionadas: nivel, cond_activ, sexo, edad, p7_3, p4, p5
+
+M22sel = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M23sel = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+M24sel = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
+
+MA22sel=na.omit(M22sel)
+MA23sel=na.omit(M23sel)
+MA24sel=na.omit(M24sel)
+
+M22_limpio <- subset(M22sel,
+                     nivel != 99 &
+                     cond_act != 99 &
+                     p7_3 != 999999 & p7_3 != 0 &
+                     p4 != 0 &
+                     p5 == 4) 
+
+M23_limpio <- subset(M23sel,
+                     nivel != 99 &
+                     cond_act != 99 &
+                     p7_3 != 999999 & p7_3 != 0 &
+                     p4 != 0 &
+                     p5 == 4)
+
+M24_limpio <- subset(M24sel,
+                     nivel != 99 &
+                     cond_act != 99 &
+                     p7_3 != 999999 & p7_3 != 0 &
+                     p4 != 0 &
+                     p5 == 4)
+
+View(M22_limpio)
+View(M23_limpio)
+View(M24_limpio)
+
+#dataframe con las variables seleccionadas, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
+
+variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
+df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
+View(df_caracteristicas_variable_seleccionadas)
+
+#108 variables en todas las bases de datos, con registros que rondan entre 1996 y 2016 anuales.
 ```
 
 ### Variables de interés
@@ -133,27 +170,7 @@ kable(tabla, escape = FALSE,
 
 ```
 
-## Seleccion del conjunto de datos a utilizar y los años
 
-```{r, echo = FALSE, include = FALSE}
-
-#Años seleccionados: 2022, 2023, 2024
-#Variables seleccionadas: nivel, cond_activ, sexo, edad, p7_3, p4, p5
-
-M22final = M22[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
-M23final = M23[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
-M24final = M24[, c("nivel", "cond_act", "sexo", "edad", "p7_3", "p4", "p5")]
-
-MA22final=na.omit(M22final)
-MA23final=na.omit(M23final)
-MA24final=na.omit(M24final)
-
-#dataframe con las variables seleccionadas, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar
-
-variables_seleccionadas = c("nivel","cond_act","sexo","edad","P7_3", "p4", "p5" )
-df_caracteristicas_variable_seleccionadas <- df_caracteristicas_variable[df_caracteristicas_variable[,3] %in% variables_seleccionadas, ]
-View(df_caracteristicas_variable_seleccionadas)
-```
 
 scatterplot
 
