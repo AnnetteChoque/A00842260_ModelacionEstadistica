@@ -136,8 +136,8 @@ kable(tabla, escape = FALSE,
 
 ```
 
+## Seleccion del conjunto de datos a utilizar y los años
 
-## Seleccion del conjunto de datos a utilizar y los años 
 ```{r, echo = FALSE, include = FALSE}
 
 #Años seleccionados: 2022, 2023, 2024
@@ -159,6 +159,7 @@ View(df_caracteristicas_variable_seleccionadas)
 ```
 
 ## Analisis de Datos cuantitativos para 2022, 2023 y 2024
+
 ```{r}
 
 analisis_cuant = function(x){
@@ -230,10 +231,8 @@ kable(tabla_cuant_todos, caption = "Medidas descriptivas de las variables cuanti
 
 ```
 
-
-
-
 ## Visualización de variables cuantitativas
+
 ```{r}
 # 2022
 Datos_cuant22 = MA22final[, c("edad", "p7_3", "p4")]
@@ -290,4 +289,3 @@ kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
 
 
 ```
-
