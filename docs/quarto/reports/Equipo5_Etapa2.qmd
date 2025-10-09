@@ -122,7 +122,7 @@ La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores
 +----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 | Nombre   | Tipo         | Descripción                                                                      | Valores que puede tomar                                                             |
 +==========+==============+==================================================================================+=====================================================================================+
-| nivel    | Categórica   | Nivel educativo alcanzado por el encuestado                                      | | 00 = Ninguno                                                                      |
+| nivel    | Categórica   | Nivel educativo alcanzado por el encuestado                                      | | 00 = Ninguno                                                                      |
 |          |              |                                                                                  | | 01 = Preescolar                                                                   |
 |          |              |                                                                                  | | 02 = Primaria                                                                     |
 |          |              |                                                                                  | | 03 = Secundaria                                                                   |
@@ -154,13 +154,13 @@ La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores
 | edad     | Cuantitativa | Edad del encuestado en años cumplidos                                            | 18 - 98                                                                             |
 +----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 | p7_3     | Cuantitativa | Monto gastado en libros en los últimos 12 meses                                  | | b = Blanco por pase                                                               |
-|          |              |                                                                                  | | 000030 - 015000 (pesos)                                                           |
+|          |              |                                                                                  | | 000030 - 01-5000 (pesos)                                                          |
 |          |              |                                                                                  | | 999999 = No sabe                                                                  |
 +----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-| p4       | Cuantitativa | Número de libros leídos en los últimos 12 meses                                  | | 01 - 70 = Libros                                                                  |
+| p4       | Cuantitativa | Número de libros leídos en los últimos 12 meses                                  | | 01 - 70 = Libros                                                                  |
 |          |              |                                                                                  | | b = Blanco por pase                                                               |
 +----------+--------------+----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-| p5       | Categórica   | Motivo principal de lectura (filtrar por “por gusto”)                            | | 1 = Por trabajo                                                                   |
+| p5       | Categórica   | Motivo principal de lectura (filtrar por “por gusto”)                            | | 1 = Por trabajo                                                                   |
 |          |              |                                                                                  | | 2 = Por estudio                                                                   |
 |          |              |                                                                                  | | 3 = Por cultura general o por estar al día                                        |
 |          |              |                                                                                  | | 4 = Por gusto o por entretenimiento                                               |
@@ -173,7 +173,7 @@ La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores
 
 scatterplot
 
-## Analisis de Datos cuantitativos para 2022, 2023 y 2024
+## Exploración de los datos
 
 ```{r}
 
@@ -221,19 +221,19 @@ analisis_cuant = function(x){
 }
 
 # 2022
-Datos22 = MA22final[, c("edad", "p7_3", "p4")]
+Datos22 = M22_limpio[, c("edad", "p7_3", "p4")]
 tabla_cuant22 = lapply(Datos22, analisis_cuant)
 tabla_cuant22 = do.call(rbind, tabla_cuant22)
 rownames(tabla_cuant22) = paste0(names(Datos22), "_2022")
 
 # 2023
-Datos23 <- MA23final[, c("edad", "p7_3", "p4")]
+Datos23 <- M23_limpio[, c("edad", "p7_3", "p4")]
 tabla_cuant23 = lapply(Datos23, analisis_cuant)
 tabla_cuant23 = do.call(rbind, tabla_cuant23)
 rownames(tabla_cuant23) = paste0(names(Datos23), "_2023")
 
 # 2024
-Datos24 = MA24final[, c("edad", "p7_3", "p4")]
+Datos24 = M24_limpio[, c("edad", "p7_3", "p4")]
 tabla_cuant24 = lapply(Datos24, analisis_cuant)
 tabla_cuant24 = do.call(rbind, tabla_cuant24)
 rownames(tabla_cuant24) = paste0(names(Datos24), "_2024")
@@ -250,7 +250,7 @@ kable(tabla_cuant_todos, caption = "Medidas descriptivas de las variables cuanti
 
 ```{r}
 # 2022
-Datos_cuant22 = MA22final[, c("edad", "p7_3", "p4")]
+Datos_cuant22 = M22_limpio[, c("edad", "p7_3", "p4")]
 
 par(mfrow = c(1,3))
 boxplot(Datos_cuant22, main = "Boxplots 2022", col = "blue", las = 2)
@@ -268,7 +268,7 @@ kable(round(correlacion22, 2), caption = "Matriz de correlaciones (2022)") %>%
 
 
 # 2023
-Datos_cuant23 = MA23final[, c("edad", "p7_3", "p4")]
+Datos_cuant23 = M23_limpio[, c("edad", "p7_3", "p4")]
 
 par(mfrow = c(1,3))
 boxplot(Datos_cuant23, main = "Boxplots 2023", col = "red", las = 2)
@@ -286,7 +286,7 @@ kable(round(correlacion23, 2), caption = "Matriz de correlaciones (2023)") %>%
 
 
 # 2024
-Datos_cuant24 = MA24final[, c("edad", "p7_3", "p4")]
+Datos_cuant24 = M24_limpio[, c("edad", "p7_3", "p4")]
 
 par(mfrow = c(1,3))
 boxplot(Datos_cuant24, main = "Boxplots 2024", col = "yellow", las = 2)
