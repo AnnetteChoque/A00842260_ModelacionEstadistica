@@ -276,7 +276,7 @@ Estos patrones se repiten año tras año, lo que sugiere que los hábitos de lec
 
 ## Visualización de variables cuantitativas
 
-```{r,include=FALSE}
+```{r}
 # 2022
 Datos_cuant22 = M22_limpio[, c("edad", "p7_3", "p4")]
 
