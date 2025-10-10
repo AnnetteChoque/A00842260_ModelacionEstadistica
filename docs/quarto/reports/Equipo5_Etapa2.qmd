@@ -281,33 +281,12 @@ Estos patrones se repiten año tras año, lo que sugiere que los hábitos de lec
 # 2022
 Datos_cuant22 = M22_limpio[, c("edad", "p7_3", "p4")]
 
-par(mfrow = c(1,1))
-boxplot(Datos_cuant22,horizontal = TRUE, main = "Boxplots 2022", col = "blue", las = 2)
-par(mfrow = c(1,1))
-
-for (v in names(Datos_cuant22)) {
-  hist(Datos_cuant22[[v]], 
-       main = paste("Histograma de", v, "2022"), 
-       xlab = v, col = "green", border = "black")
-}
-
 correlacion22 = cor(Datos_cuant22, use = "complete.obs")
 kable(round(correlacion22, 2), caption = "Matriz de correlaciones (2022)") %>%
   kable_styling(full_width = TRUE, bootstrap_options = c("striped","hover"))
 
-
 # 2023
 Datos_cuant23 = M23_limpio[, c("edad", "p7_3", "p4")]
-
-par(mfrow = c(1,1))
-boxplot(Datos_cuant23,horizontal = TRUE, main = "Boxplots 2023", col = "red", las = 2)
-par(mfrow = c(1,1))
-
-for (v in names(Datos_cuant23)) {
-  hist(Datos_cuant23[[v]], 
-       main = paste("Histograma de", v, "2023"), 
-       xlab = v, col = "pink", border = "black")
-}
 
 correlacion23 = cor(Datos_cuant23, use = "complete.obs")
 kable(round(correlacion23, 2), caption = "Matriz de correlaciones (2023)") %>%
@@ -317,16 +296,6 @@ kable(round(correlacion23, 2), caption = "Matriz de correlaciones (2023)") %>%
 # 2024
 Datos_cuant24 = M24_limpio[, c("edad", "p7_3", "p4")]
 
-par(mfrow = c(1,1))
-boxplot(Datos_cuant24,horizontal = TRUE, main = "Boxplots 2024", col = "yellow", las = 2)
-par(mfrow = c(1,1))
-
-for (v in names(Datos_cuant24)) {
-  hist(Datos_cuant24[[v]], 
-       main = paste("Histograma de", v, "2024"), 
-       xlab = v, col = "orange", border = "black")
-}
-
 correlacion24 = cor(Datos_cuant24, use = "complete.obs")
 kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
   kable_styling(full_width = TRUE, bootstrap_options = c("striped","hover"))
@@ -335,6 +304,12 @@ kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
 ```
 
 Las variables cuantitativas fueron analizadas y representadas por gráficos como los boxplots mostrados en las Gráficas 1, 2 y 3, las cuales muestran el comportamiento de la edad, libros leídos en los últimos doce meses y el dinero gastado en la lectura. En los tres boxplots observamos que la edad presenta una distribución concentrada en valores bajos, también cabe mencionar que no hay valores atípicos significativos y que a través de esos tres años la mediana se mantiene estable. Cuando vemos en los gráficos la variable p4 nos referimos a la cantidad de libros leídos en los últimos doce meses, en este caso vemos que en los tres años se concentra en valores bajos, lo que puede significar poco interés en la lectura debido a la poca cantidad de libros leídos por las personas, la mediana es baja y no notamos un cambio a través de los años sino que se mantiene estable. La variable p7_3 representa la cantidad de dinero gastado en libros y en este caso al analizar los boxplots podemos observar mayor dispersión y datos atípicos y un ejemplo de ello es en 2022 donde se observan datos atípicos significativos de gasto de hasta 120 mil. En el caso de 2023 y 2024 aún notamos dispersión en los datos, disminuye pero muestra asimetría positiva.
+
+Ahora, planteamos la información en forma de un histograma. Analizando la distribución de edad de la población (Véase la Gráfica 4), se muestra una concentración notable en el rango de adultez media (20 a 30 años), con una disminución progresiva hacia las edades mayores. Esto nos da a entender que hay una distribución normal con ligera asimetría a la derecha, lo que sugiere que la mayoría de la población que lee son adultos jóvenes o de mediana edad.
+Por otro lado, tenemos el histograma de Gasto anual en libros (Véase la gráfica 5). Analizando, podemos observar una distribución altamente asimétrica y concentrada en valores cercanos a cero. La gran mayoría de la población reporta no haber destinado recursos económicos en la compra de libros. Sin embargo, se observa que hay una pequeña cantidad de la población que invierte en cantidades elevadas. Esto sugiere que hay una minoría que mantiene la lectura como una práctica activa, mientras que la mayoría no suele practicar esta actividad.
+
+Analizando las gráficas de 2023 podemos notar que en el caso de la Gráfica 7 gran parte de las edades se encuentran en las personas entre 25 y 50 años, vemos que se parece un poco a una distribución normal asimétrica hacia la derecha, muy diferente a lo que observamos en las gráficas de las otras variables, pues en la gráfica que representa el gasto en la lectura en 2023, Gráfica 8, vemos un claro sesgo a la derecha lo que significa que la mayoría de las personas encuestadas gasta poco o nada en la lectura, aquí notamos algo peculiar pues al mismo tiempo la gráfica que muestra la cantidad de libros leídos en los últimos doce meses, Gráfica 9, esta sesgada igualmente a la derecha con la mayor parte de las respuestas entre 0 y 5 libros leídos al año, vemos que se trata de una distribución desigual. pero encontramos una relación pues vemos que así como se gasta poco en la lectura también se leen pocos libros. 
+
 
 ## Conclusión
 
@@ -361,4 +336,52 @@ Link del repositorio en github (docs/quarto/reports):
 
 : Medidas descriptivas.
 
+```{r,echo=FALSE}
+#Boxplot
+par(mfrow = c(1,1))
+boxplot(Datos_cuant22,horizontal = TRUE, main = "Boxplots 2022", col = "blue", las = 2)
+par(mfrow = c(1,1))
+```
+Gráfica 1. Boxplot Variables 2022
+```{r,echo=FALSE}
+par(mfrow = c(1,1))
+boxplot(Datos_cuant23,horizontal = TRUE, main = "Boxplots 2023", col = "red", las = 2)
+par(mfrow = c(1,1))
+```
+Gráfica 2. Boxplot Variables 2023
+```{r,echo=FALSE}
+par(mfrow = c(1,1))
+boxplot(Datos_cuant24,horizontal = TRUE, main = "Boxplots 2024", col = "yellow", las = 2)
+par(mfrow = c(1,1))
+```
+Gráfica 3. Boxplot Variables 2024
 
+```{r, echo=FALSE}
+par(mfrow = c(1,3))
+for (v in names(Datos_cuant22)) {
+  hist(Datos_cuant22[[v]], 
+       main = paste("Histograma de", v, "2022"), 
+       xlab = v, col = "green", border = "black")
+}
+```
+Gráficas 4,5,6. Histogramas de las variables edad,p7_3 (Gasto en la lectura) y p4 (Libros leídos) en 2022.
+
+```{r,echo=FALSE}
+par(mfrow = c(1,3))
+for (v in names(Datos_cuant23)) {
+  hist(Datos_cuant23[[v]], 
+       main = paste("Histograma de", v, "2023"), 
+       xlab = v, col = "pink", border = "black")
+}
+```
+Gráficas 7,8,9. Histogramas de las variables edad,p7_3 (Gasto en la lectura) y p4 (Libros leídos) en 2023.
+
+```{r,echo=FALSE}
+par(mfrow = c(1,3))
+for (v in names(Datos_cuant24)) {
+  hist(Datos_cuant24[[v]], 
+       main = paste("Histograma de", v, "2024"), 
+       xlab = v, col = "orange", border = "black")
+}
+```
+Gráficas 10,11,12. Histogramas de las variables edad,p7_3 (Gasto en la lectura) y p4 (Libros leídos) en 2024.
