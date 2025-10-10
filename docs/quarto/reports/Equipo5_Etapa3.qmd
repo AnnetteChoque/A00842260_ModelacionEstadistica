@@ -1,0 +1,22 @@
+---
+title: "Equipo5_Etapa3"
+format: pdf
+editor: visual
+---
+
+## Quarto
+
+```{r}
+library(plotrix)
+n = 20 # u otro valor como 50, 100
+media = 100 # Media de población
+DE = 15 # Desviación estándar depoblación
+ErrorEst= DE/sqrt(n)
+X_ = rnorm(n, media, ErrorEst)
+E = 1.96*DE/sqrt(n) # E = Error máximo
+plotCI(1:n,X_, E ,main="Gráfico de IC", , xlab
+= "n intervalos", ylab = "medias muestrales")
+abline(h = 100, col = "red")
+
+```
+
