@@ -22,6 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(knitr)
 library(kableExtra)
+library(ggplot2)
 ```
 
 ## Objetivo del análisis
@@ -125,65 +126,65 @@ Para poder tener bien definidas las variables puntuales que se usarán en la inv
 
 La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores posibles antes del filtrado (2022–2024)
 
-+----------+--------------+-------------------------+----------------------------------------------+
-| Nombre   | Tipo         | Descripción             | Valores que puede tomar                      |
-+==========+==============+=========================+==============================================+
-| nivel    | Categórica   | Nivel educativo         | | 00 = Ninguno                               |
-|          |              |                         | | 01 = Preescolar                            |
-|          |              | alcanzado por el        | | 02 = Primaria                              |
-|          |              |                         | | 03 = Secundaria                            |
-|          |              | encuestado              | | 04 = Preparatoria o bachillerato           |
-|          |              |                         | | 05 = Normal básica                         |
-|          |              |                         | | 06 = Carrera técnica                       |
-|          |              |                         | | 07 = Profesional                           |
-|          |              |                         | | 08 = Maestría                              |
-|          |              |                         | | 09 = Doctorado                             |
-|          |              |                         | | 99 = No sabe                               |
-|          |              |                         | | b = Blanco por pase                        |
-+----------+--------------+-------------------------+----------------------------------------------+
-| cond_act | Categórica   | Condición de actividad  | | 01 = trabajó para obtener ingresos         |
-|          |              |                         | | 02 =  trabajó sin pago ayudando en el      |
-|          |              | económica (ocupado,     | | negocio o actividad que desempeña un       |
-|          |              |                         | | familiar                                   |
-|          |              | estudiante, etc.) en la | | 03 = no trabajó, pero sí tenía trabajo     |
-|          |              |                         | | 04 = buscó trabajo                         |
-|          |              | última semana           | | 05 = esta en espera de que le resuelvan    |
-|          |              |                         | | una solicitud de un trabajo                |
-|          |              |                         | | al que acudió                              |
-|          |              |                         | | 06 = es estudiante                         |
-|          |              |                         | | 07 = se dedica a los quehaceres            |
-|          |              |                         | | de su hogar                                |
-|          |              |                         | | 08 = es jubilado(a) o pensionado(a)        |
-|          |              |                         | | 09 = esta incapacitado(a)                  |
-|          |              |                         | | permanentemente para trabajar              |
-|          |              |                         | | 10 = Otra situación                        |
-|          |              |                         | | 99 = No especificado                       |
-+----------+--------------+-------------------------+----------------------------------------------+
-| sexo     | Categórica   | Sexo del encuestado     | | 1 = Hombre                                 |
-|          |              |                         | | 2 = Mujer                                  |
-+----------+--------------+-------------------------+----------------------------------------------+
-| edad     | Cuantitativa | Edad del encuestado     | 18 - 98                                      |
-|          |              |                         |                                              |
-|          |              | en años cumplidos       |                                              |
-+----------+--------------+-------------------------+----------------------------------------------+
-| p7_3     | Cuantitativa | Monto gastado en        | | b = Blanco por pase                        |
-|          |              |                         | | 000030 = 01-5000 (pesos)                   |
-|          |              | libros en los últimos   | | 999999 = No sabe                           |
-|          |              |                         |                                              |
-|          |              | 12 meses                |                                              |
-+----------+--------------+-------------------------+----------------------------------------------+
-| p4       | Cuantitativa | Número de libros leídos | | 01 - 70 = Libros                           |
-|          |              |                         | | b = Blanco por pase                        |
-|          |              | en los últimos 12 meses |                                              |
-+----------+--------------+-------------------------+----------------------------------------------+
-| p5       | Categórica   | Motivo principal de     | | 1 = Por trabajo                            |
-|          |              |                         | | 2 = Por estudio                            |
-|          |              | lectura                 | | 3 = Por cultura general o por estar al día |
-|          |              |                         | | 4 = Por gusto o por entretenimiento        |
-|          |              |                         | | 5 = Por religión                           |
-|          |              |                         | | 6 = Otro                                   |
-|          |              |                         | | b = Blanco por pase                        |
-+----------+--------------+-------------------------+----------------------------------------------+
++------------+--------------+-------------------------+----------------------------------------------+
+| Nombre     | Tipo         | Descripción             | Valores que puede tomar                      |
++============+==============+=========================+==============================================+
+| nivel      | Categórica   | Nivel educativo         | | 00 = Ninguno                               |
+|            |              |                         | | 01 = Preescolar                            |
+|            |              | alcanzado por el        | | 02 = Primaria                              |
+|            |              |                         | | 03 = Secundaria                            |
+|            |              | encuestado              | | 04 = Preparatoria o bachillerato           |
+|            |              |                         | | 05 = Normal básica                         |
+|            |              |                         | | 06 = Carrera técnica                       |
+|            |              |                         | | 07 = Profesional                           |
+|            |              |                         | | 08 = Maestría                              |
+|            |              |                         | | 09 = Doctorado                             |
+|            |              |                         | | 99 = No sabe                               |
+|            |              |                         | | b = Blanco por pase                        |
++------------+--------------+-------------------------+----------------------------------------------+
+| cond_act   | Categórica   | Condición de actividad  | | 01 = trabajó para obtener ingresos         |
+|            |              |                         | | 02 =  trabajó sin pago ayudando en el      |
+|            |              | económica (ocupado,     | | negocio o actividad que desempeña un       |
+|            |              |                         | | familiar                                   |
+|            |              | estudiante, etc.) en la | | 03 = no trabajó, pero sí tenía trabajo     |
+|            |              |                         | | 04 = buscó trabajo                         |
+|            |              | última semana           | | 05 = esta en espera de que le resuelvan    |
+|            |              |                         | | una solicitud de un trabajo                |
+|            |              |                         | | al que acudió                              |
+|            |              |                         | | 06 = es estudiante                         |
+|            |              |                         | | 07 = se dedica a los quehaceres            |
+|            |              |                         | | de su hogar                                |
+|            |              |                         | | 08 = es jubilado(a) o pensionado(a)        |
+|            |              |                         | | 09 = esta incapacitado(a)                  |
+|            |              |                         | | permanentemente para trabajar              |
+|            |              |                         | | 10 = Otra situación                        |
+|            |              |                         | | 99 = No especificado                       |
++------------+--------------+-------------------------+----------------------------------------------+
+| sexo       | Categórica   | Sexo del encuestado     | | 1 = Hombre                                 |
+|            |              |                         | | 2 = Mujer                                  |
++------------+--------------+-------------------------+----------------------------------------------+
+| edad       | Cuantitativa | Edad del encuestado     | 18 - 98                                      |
+|            |              |                         |                                              |
+|            |              | en años cumplidos       |                                              |
++------------+--------------+-------------------------+----------------------------------------------+
+| p7_3       | Cuantitativa | Monto gastado en        | | b = Blanco por pase                        |
+|            |              |                         | | 000030 = 01-5000 (pesos)                   |
+|            |              | libros en los últimos   | | 999999 = No sabe                           |
+|            |              |                         |                                              |
+|            |              | 12 meses                |                                              |
++------------+--------------+-------------------------+----------------------------------------------+
+| p4         | Cuantitativa | Número de libros leídos | | 01 - 70 = Libros                           |
+|            |              |                         | | b = Blanco por pase                        |
+|            |              | en los últimos 12 meses |                                              |
++------------+--------------+-------------------------+----------------------------------------------+
+| p5         | Categórica   | Motivo principal de     | | 1 = Por trabajo                            |
+|            |              |                         | | 2 = Por estudio                            |
+|            |              | lectura                 | | 3 = Por cultura general o por estar al día |
+|            |              |                         | | 4 = Por gusto o por entretenimiento        |
+|            |              |                         | | 5 = Por religión                           |
+|            |              |                         | | 6 = Otro                                   |
+|            |              |                         | | b = Blanco por pase                        |
++------------+--------------+-------------------------+----------------------------------------------+
 
 : Descripción de variables
 
@@ -274,14 +275,14 @@ Las variables cualitativas (que abarcan nivel educativo, condición de actividad
 
 Estos patrones se repiten año tras año, lo que sugiere que los hábitos de lectura por gusto siguen siendo limitados en la población general, a pesar de los esfuerzos institucionales por fomentarlos.
 
-## Visualización de variables cuantitativas
+## Interpretación de los gráficos
 
-```{r}
+```{r,include=FALSE}
 # 2022
 Datos_cuant22 = M22_limpio[, c("edad", "p7_3", "p4")]
 
-par(mfrow = c(1,3))
-boxplot(Datos_cuant22, main = "Boxplots 2022", col = "blue", las = 2)
+par(mfrow = c(1,1))
+boxplot(Datos_cuant22,horizontal = TRUE, main = "Boxplots 2022", col = "blue", las = 2)
 par(mfrow = c(1,1))
 
 for (v in names(Datos_cuant22)) {
@@ -298,8 +299,8 @@ kable(round(correlacion22, 2), caption = "Matriz de correlaciones (2022)") %>%
 # 2023
 Datos_cuant23 = M23_limpio[, c("edad", "p7_3", "p4")]
 
-par(mfrow = c(1,3))
-boxplot(Datos_cuant23, main = "Boxplots 2023", col = "red", las = 2)
+par(mfrow = c(1,1))
+boxplot(Datos_cuant23,horizontal = TRUE, main = "Boxplots 2023", col = "red", las = 2)
 par(mfrow = c(1,1))
 
 for (v in names(Datos_cuant23)) {
@@ -316,8 +317,8 @@ kable(round(correlacion23, 2), caption = "Matriz de correlaciones (2023)") %>%
 # 2024
 Datos_cuant24 = M24_limpio[, c("edad", "p7_3", "p4")]
 
-par(mfrow = c(1,3))
-boxplot(Datos_cuant24, main = "Boxplots 2024", col = "yellow", las = 2)
+par(mfrow = c(1,1))
+boxplot(Datos_cuant24,horizontal = TRUE, main = "Boxplots 2024", col = "yellow", las = 2)
 par(mfrow = c(1,1))
 
 for (v in names(Datos_cuant24)) {
@@ -333,6 +334,8 @@ kable(round(correlacion24, 2), caption = "Matriz de correlaciones (2024)") %>%
 
 ```
 
+Las variables cuantitativas fueron analizadas y representadas por gráficos como los boxplots mostrados en las Gráficas 1, 2 y 3, las cuales muestran el comportamiento de la edad, libros leídos en los últimos doce meses y el dinero gastado en la lectura. En los tres boxplots observamos que la edad presenta una distribución concentrada en valores bajos, también cabe mencionar que no hay valores atípicos significativos y que a través de esos tres años la mediana se mantiene estable. Cuando vemos en los gráficos la variable p4 nos referimos a la cantidad de libros leídos en los últimos doce meses, en este caso vemos que en los tres años se concentra en valores bajos, lo que puede significar poco interés en la lectura debido a la poca cantidad de libros leídos por las personas, la mediana es baja y no notamos un cambio a través de los años sino que se mantiene estable. La variable p7_3 representa la cantidad de dinero gastado en libros y en este caso al analizar los boxplots podemos observar mayor dispersión y datos atípicos y un ejemplo de ello es en 2022 donde se observan datos atípicos significativos de gasto de hasta 120 mil. En el caso de 2023 y 2024 aún notamos dispersión en los datos, disminuye pero muestra asimetría positiva.
+
 ## Conclusión
 
 Se ha completado la etapa exploratoria del análisis descriptivo, identificando patrones generales sobre los hábitos de lectura en México y las variables que los influyen. El trabajo permitió seleccionar y depurar las variables clave (nivel educativo, condición económica, sexo, edad, gasto en libros y número de libros leídos), así como generar gráficos que evidencian distribuciones sesgadas y concentraciones en adultos de edad media. Los resultados sugieren que el gasto en libros y la lectura por gusto son prácticas minoritarias, posiblemente relacionadas con factores educativos y económicos, lo que sienta las bases para formular hipótesis inferenciales como: Las personas con mayor nivel educativo gastan más en libros. El número de libros leídos varía según la condición económica. Existen diferencias de género en el comportamiento lector.
@@ -344,7 +347,7 @@ Link del repositorio en github (docs/quarto/reports):
 <https://github.com/AnnetteChoque/A00842260_ModelacionEstadistica.git>
 
 | Estadística  | edad_22 | p7_3     | p4     | edad_23 | p7_3   | p4    | edad_24 | p7_3    | p4    |
-|--------------|---------|----------|--------|---------|--------|-------|---------|---------|-------|
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Media        | 41.76   | 1745.01  | 4.56   | 42.73   | 797.44 | 3.64  | 41.42   | 867.12  | 3.72  |
 | Mediana      | 38      | 500      | 3      | 41      | 500    | 3     | 39      | 500     | 2     |
 | Rango Medio  | 49.5    | 60005    | 23     | 48.5    | 2010   | 15.5  | 51      | 2515    | 25.5  |
@@ -357,3 +360,5 @@ Link del repositorio en github (docs/quarto/reports):
 | Curtosis     | 2.06    | 129.89   | 17.88  | 2.31    | 6.46   | 24.26 | 2.46    | 9.71    | 54.06 |
 
 : Medidas descriptivas.
+
+
