@@ -188,8 +188,6 @@ La Tabla 2 presenta las variables seleccionadas, su tipo, descripción y valores
 
 : Descripción de variables
 
-scatterplot
-
 ## Exploración de los datos
 
 En la primera etapa del estudio se definieron las variables de análisis que permitirán dar respuesta a la pregunta de investigación. Estas corresponden al nivel educativo alcanzado por el encuestado, la condición de actividad económica en la última semana, el sexo, la edad en años cumplidos, el monto gastado en libros durante los últimos 12 meses, el número de libros leídos en el mismo periodo y el motivo principal de lectura. A partir de la exploración y análisis de estas variables, fue posible identificar tendencias generales y características estadísticas que se presentan a continuación (Tabla 3).
