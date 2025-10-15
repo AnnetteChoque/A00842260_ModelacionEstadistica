@@ -1,0 +1,44 @@
+---
+title: "Equipo5_Etapa3"
+author:
+  - Mariana Hernández Jiménez   |   A00841920
+  - Andrea Estefanía De la Peña Contreras  |  A00840973
+  - Carolina Navarro Barrón   |   A00839486
+  - Annette Abigail Choque Millán   |  A00842260
+  - Maricarmen Terán Maturino   |   A00841435
+date: "2025-10-15"
+format: pdf
+editor: visual
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotrix)
+library(dplyr)
+```
+
+```{r}
+#Nueva base de datos de los 3 años
+M22L = read.csv("Datos2022Limpios.csv")
+M23L = read.csv("Datos2023Limpios.csv")
+M24L = read.csv("Datos2024Limpios.csv")
+
+M2224 = bind_rows(M22L,M23L,M24L)
+
+write.csv(M2224,"BasedeDatosMolec.csv",row.names = FALSE)
+```
+
+## Quarto
+
+```{r}
+n = 20 # u otro valor como 50, 100
+media = 100 # Media de población
+DE = 15 # Desviación estándar depoblación
+ErrorEst= DE/sqrt(n)
+X_ = rnorm(n, media, ErrorEst)
+E = 1.96*DE/sqrt(n) # E = Error máximo
+plotCI(1:n,X_, E ,main="Gráfico de IC", , xlab
+= "n intervalos", ylab = "medias muestrales")
+abline(h = 100, col = "red")
+
+```
+
