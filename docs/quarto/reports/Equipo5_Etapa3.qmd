@@ -1,5 +1,5 @@
 ---
-title: "Equipo5_Etapa3"
+title: "Etapa 3: Análisis Inferencial"
 author:
   - Mariana Hernández Jiménez   |   A00841920
   - Andrea Estefanía De la Peña Contreras  |  A00840973
