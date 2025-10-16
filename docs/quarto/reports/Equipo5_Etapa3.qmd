@@ -28,7 +28,7 @@ M2224 = bind_rows(M22L,M23L,M24L)
 write.csv(M2224,"BasedeDatosMolec.csv",row.names = FALSE)
 ```
 
-```{r}
+```{r, include=FALSE}
 n = 20 # u otro valor como 50, 100
 media = 100 # Media de población
 DE = 15 # Desviación estándar depoblación
@@ -83,16 +83,44 @@ Además, al comparar los grupos de “nivel educativo bajo” y “nivel educati
 
 Por estas razones, no se puede asumir que las varianzas fueran iguales entre los dos grupos. Por eso, se debe usar la prueba t para dos muestras independientes, que no requiere que las varianzas sean iguales y es más confiable cuando los datos están sesgados o tienen valores extremos.
 
-```{r}
-LI= M2224 %>% filter(nivel <= 4) %>% pull(p7_3)
-LS= M2224 %>% filter(nivel >= 7) %>% pull(p7_3)
-t.test(LI, LS, alternative = "less", var.equal = FALSE, conf.level = 0.96)
+```{r, include=FALSE}
+alfa1 = 0.04
+nc = 1 - alfa1
 
+LI1= M2224 %>% filter(nivel <= 4) %>% pull(p7_3)
+LS1= M2224 %>% filter(nivel >= 7) %>% pull(p7_3)
+
+n11 = length(LI1)
+n21 = length(LS1)
+
+x1bar = mean(LI1)
+x2bar = mean(LS1)
+
+s11 = var(LI1)
+s21 = var(LS1)
+
+t1 = (x1bar - x2bar) / sqrt(s11/n11 + s21/n21)
+
+zf1 = qnorm(alfa1)
+
+df1 = (s11/n11 + s21/n21)^2 /  ( (s11/n11)^2/(n11-1) + (s21/n21)^2/(n21-1) )
+
+#Cola izquierda porque buscamos un valor menor
+p1 = pt(t1, df1)
+
+cat("Estadístico de prueba t =",t1)
+cat("\nValor crítico zf =",zf1)
+cat("\nValor p =",p1)
+```
+Como t = –1.781 < –1.751 y p = 0.038 < 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
+
+```{r, include=FALSE}
+t.test(LI1, LS1, alternative = "less", var.equal = FALSE, conf.level = 0.96)
 ```
 
-En esta prueba obtenemos: p-value = 0.03814 y tomamos el valor de significancia como 0.05
+En esta prueba obtenemos: p-value = 0.03814 y tomamos el valor de significancia como 0.04
 
-Como el valor p \> 0.05 entonces se rechaza la hipótesis nula y decimos que el nivel educativo si hace una diferencia en el gasto en libros.
+Como el valor p < 0.05 entonces se rechaza la hipótesis nula y decimos que el nivel educativo si hace una diferencia en el gasto en libros.
 
 Obtuvimos también que t = -1.7807 es negativo porque el gasto promedio de la clase de menor nivel educativo es menor que el promedio de los de mayor nivel educativo. Esto nos lleva a concluir que las personas con mayor nivel educativo gastan más en libros.
 
