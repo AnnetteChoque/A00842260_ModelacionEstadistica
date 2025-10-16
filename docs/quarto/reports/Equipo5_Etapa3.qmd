@@ -16,6 +16,7 @@ fontsize: "10"
 knitr::opts_chunk$set(echo = TRUE)
 library(plotrix)
 library(dplyr)
+library(knitr)
 ```
 
 ```{r, include=FALSE}
@@ -29,7 +30,7 @@ M2224 = bind_rows(M22L,M23L,M24L)
 write.csv(M2224,"BasedeDatosMolec.csv",row.names = FALSE)
 ```
 
-```{r, include=FALSE}
+```{r, echo=FALSE}
 n = 20 # u otro valor como 50, 100
 media = 100 # Media de población
 DE = 15 # Desviación estándar depoblación
@@ -184,7 +185,7 @@ Pero también se probará con la prueba de Welch para 2 muestras, la cual obtien
 ```{r,echo=FALSE}
 t.test(trabaja, no_trabaja, alternative = "two.sided", var.equal = FALSE, conf.level = 0.96)
 ```
-Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es > 0.05 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
+Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es > 0.04 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
 
 **Hipótesis 3:** Existen diferencias de género en el comportamiento lector.
 
@@ -205,17 +206,47 @@ Se compara el número de libros leídos (p4) entre quienes se identificaron como
 Dado que los tamaños muestrales son grandes y balanceados, las varianzas pueden considerarse iguales.
 Aunque la variable p4 es sesgada, el Teorema del Límite Central hace que la distribución de la diferencia de medias sea aproximadamente normal. Por lo que se puede usar la versión clásica de la prueba t para dos muestras independientes con varianzas iguales.
 
-```{r}
+```{r, echo=FALSE}
 hombres=M2224 %>% filter(sexo == 1) %>% pull(p4)
 mujeres=M2224 %>% filter(sexo == 2) %>% pull(p4)
 
-t.test(hombres, mujeres, alternative = "two.sided",var.equal = TRUE, conf.level = 0.96)
+n13 = length(hombres)
+n23 = length(mujeres)
 
+x1bar3 = mean(hombres)
+x2bar3 = mean(mujeres)
+
+s13 = var(hombres) 
+s23 = var(mujeres)
+
+sp3 = ((n13 - 1)*s13 + (n23 - 1)*s23) / (n13 + n23 - 2)
+
+# Estadístico t con varianzas iguales
+t3 = (x1bar3 - x2bar3) / sqrt(sp3 * (1/n13 + 1/n23))
+
+zf3 = qnorm(1-alfa1/2)
+
+df3 = n13 + n23 - 2
+
+p3 = 2 * pt(-abs(t3), df3)
+
+SE3 = sqrt(sp3 * (1/n13 + 1/n23))
+tc3 = qt(1 - alfa1/2, df3)
+LI3 = (x1bar3 - x2bar3) - tc3 * SE3
+LS3 = (x1bar3 - x2bar3) + tc3 * SE3
+
+cat("Estadístico de prueba t =",t3,"\nValor crítico zf =",zf3,"\nValor p =",p3)
+cat("\nIntervalo: [",LI3,",",LS3,"]")
 ```
+El estadístico |t| = 1.59 < 2.053 y el valor p = 0.112 > 0.04 por lo que no se rechaza H0, así que no se observan diferencias significativas de género en el número de libros leídos.
 
-En este caso obtuvimos un valor de p-value = 0.1116 \> 0.05 lo cual se interpreta en que no tenemos evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intérvalo de confianza se incluye el cero, lo cual refuerza la idea de que no podemos decir que hay una diferencia significativa en el comportamiento de la lectura entre hombres y mujeres.
+De nuevo, probando con el test de la prueba t se obtiene:
+```{r, echo=FALSE}
+t.test(hombres, mujeres, alternative = "two.sided",var.equal = TRUE, conf.level = 0.96)
+```
+En este caso obtuvimos un valor de p-value = 0.1116 > 0.04 lo cual se interpreta en que no tenemos evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intérvalo de confianza se incluye el cero, lo cual refuerza la idea de que no podemos decir que hay una diferencia significativa en el comportamiento de la lectura entre hombres y mujeres.
 
-## Anexos
+
 ## Anexos
 
 ### Anexo 1: Boxplots de variables cuantitativas
