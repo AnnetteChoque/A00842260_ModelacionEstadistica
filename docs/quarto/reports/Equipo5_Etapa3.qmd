@@ -209,7 +209,7 @@ Pero también se probará con la prueba de Welch para 2 muestras, la cual obtien
 t.test(trabaja, no_trabaja, alternative = "two.sided", var.equal = FALSE, conf.level = 0.96)
 ```
 
-Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es \> 0.04 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
+Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es \> 0.04 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
 
 **Hipótesis 3:** Existen diferencias de género en el comportamiento lector.
 
@@ -457,7 +457,7 @@ medias3 = c(media_hombres, media_mujeres)
 errores1 = c(E_bajo, E_alto)
 errores2 = c(E_trabaja, E_no_trabaja)
 errores3 = c(E_hombres, E_mujeres)
-grupos1 = c("Nivel bajo", "Nivel alto")
+grupos1 = c("N-bajo", "N-alto")
 grupos2 = c("Trabaja", "No trabaja")
 grupos3 = c("Hombres", "Mujeres")
 colores1 = c("red", "blue")
@@ -508,4 +508,4 @@ axis(1, at = 1:2, labels = grupos3, las = 2, cex.axis = 0.8)
 abline(v = c(2.5, 4.5), lty = 2, col = "gray")
 ```
 
-Gráfica 9. Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
+**Gráfica 9, 10, 11.** Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
