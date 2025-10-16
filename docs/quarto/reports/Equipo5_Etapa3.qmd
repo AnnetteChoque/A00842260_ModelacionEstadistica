@@ -17,7 +17,7 @@ library(plotrix)
 library(dplyr)
 ```
 
-```{r}
+```{r, include=FALSE}
 #Nueva base de datos de los 3 años
 M22L = read.csv("Datos2022Limpios.csv")
 M23L = read.csv("Datos2023Limpios.csv")
@@ -27,8 +27,6 @@ M2224 = bind_rows(M22L,M23L,M24L)
 
 write.csv(M2224,"BasedeDatosMolec.csv",row.names = FALSE)
 ```
-
-## Quarto
 
 ```{r}
 n = 20 # u otro valor como 50, 100
@@ -42,6 +40,20 @@ plotCI(1:n,X_, E ,main="Gráfico de IC", , xlab
 abline(h = 100, col = "red")
 
 ```
+## Objetivo del análisis
+
+El objetivo principal de este reporte es evaluar mediante técnicas de inferencia estadística, si ciertos factores; específicamente el nivel educativo, la condición de actividad económica y el género, tienen un impacto significativo en los hábitos de lectura de los adultos mexicanos que leen por gusto. Este análisis se centra en dos indicadores clave del comportamiento lector:
+
+* El número de libros leídos en los últimos 12 meses, y
+* El monto gastado en libros durante el mismo periodo.
+
+A partir de los hallazgos descriptivos de la Etapa 2 que revelaron patrones estables entre 2022 y 2024, como una mediana baja de libros leídos (2–3 al año), un gasto en libros altamente concentrado en cero y una población lectora mayormente adulta con educación media o superior, se formularon tres hipótesis que serán discutidas en este análisis inferencial:
+
+* Las personas con mayor nivel educativo gastan más en libros.
+* El número de libros leídos varía según la condición de actividad económica.
+* Existen diferencias de género en el comportamiento lector.
+
+Con un nivel de significancia de $\alpha$ = 0.04, se aplicarán pruebas de hipótesis e intervalos de confianza para contrastar estas afirmaciones con base en los datos de la Encuesta Nacional de Lectura (MOLEC). El propósito final es generar evidencia que permita identificar qué factores sí influyen en la lectura en México, y así contribuir para fomentar este hábito.
 
 ## Pruebas de Hipótesis
 
