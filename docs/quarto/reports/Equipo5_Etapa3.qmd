@@ -129,7 +129,7 @@ t_crit_bilateral <- qt(0.98, df = n11 - 1)
 E1 = t_crit_bilateral * se1
 E2 = t_crit_bilateral * se2
 
-cat("Estadístico de prueba t =",t1,"\nValor crítico zf =",zf1,"\nValor p =",p1)
+cat("Estadístico de prueba t =",t1,"\nValor crítico =",zf1,"\nValor p =",p1)
 ```
 Como t = –1.781 < –1.751 y p = 0.038 < 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
 
@@ -197,7 +197,7 @@ tc2 = qt(1 - alfa1/2, df2)
 LI2 = (x1bar2 - x2bar2) - tc2 * SE
 LS2 = (x1bar2 - x2bar2) + tc2 * SE
 
-cat("Estadístico de prueba t =",t2,"\nValor crítico zf =",zf2,"\nValor p =",p2)
+cat("Estadístico de prueba t =",t2,"\nValor crítico =",zf2,"\nValor p =",p2)
 cat("\nIntervalo: [",LI2,",",LS2,"]")
 ```
 
@@ -258,7 +258,7 @@ tc3 = qt(1 - alfa1/2, df3)
 LI3 = (x1bar3 - x2bar3) - tc3 * SE3
 LS3 = (x1bar3 - x2bar3) + tc3 * SE3
 
-cat("Estadístico de prueba t =",t3,"\nValor crítico zf =",zf3,"\nValor p =",p3)
+cat("Estadístico de prueba t =",t3,"\nValor crítico =",zf3,"\nValor p =",p3)
 cat("\nIntervalo: [",LI3,",",LS3,"]")
 ```
 
@@ -508,4 +508,4 @@ axis(1, at = 1:2, labels = grupos3, las = 2, cex.axis = 0.8)
 abline(v = c(2.5, 4.5), lty = 2, col = "gray")
 ```
 
-**Gráfica 9, 10, 11.** Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
+**Gráfica 8, 9, 10.** Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
