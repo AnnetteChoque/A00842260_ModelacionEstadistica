@@ -139,15 +139,51 @@ Donde:
 * Trabaja: cond_act = 1 (trabaja para obtener ingresos)
 * No trabaja: cond_act $\neq$ 1 (estudiantes, jubilados,etc)
 
-```{r}
+La hipótesis plantea que el número de libros leídos varía según la condición de actividad económica. Para probar esta afirmación, se compara a quienes trabajaron para obtener ingresos con el resto de la población.
+
+Al observar los datos en el histogramas Anexo 3 y las medidas descriptivas (Tabla 1), el número de libros leídos (p4) está muy concentrado en valores bajos: la mayoría de las personas reporta haber leído entre 0 y 5 libros en el último año, pero hay unos pocos casos que leen mucho más (hasta 70 libros), lo que genera una distribución muy asimétrica.
+
+Además, al comparar los dos grupos de interés, la variabilidad no es la misma entre ellos. El grupo de “no trabaja” incluye a estudiantes y jubilados, cuyos hábitos de lectura son más diversos: algunos estudiantes leen mucho por sus estudios o por gusto, mientras que otras personas en esta categoría casi no leen. Esto se refleja en una mayor dispersión en este grupo en comparación con quienes trabajan.
+
+Por estas razones, no se puede asumir que las varianzas fueran iguales entre los dos grupos. Por lo tanto, nuevamente conviene usar la prueba t para dos muestras independientes que es confiable cuando los datos tienen valores extremos.
+
+```{r, echo=FALSE}
 trabaja= M2224 %>% filter(cond_act == 1) %>% pull(p4)
 no_trabaja= M2224 %>% filter(cond_act != 1) %>% pull(p4)
 
-t.test(trabaja, no_trabaja, alternative = "two.sided", var.equal = FALSE, conf.level = 0.96)
+n12 = length(trabaja)
+n22 = length(no_trabaja)
 
+x1bar2 = mean(trabaja)
+x2bar2 = mean(no_trabaja)
+
+s12 = var(trabaja)
+s22 = var(no_trabaja)
+
+t2 = (x1bar2 - x2bar2) / sqrt(s12/n12 + s22/n22)
+
+zf2 = qnorm(1-alfa1/2)
+
+df2 = (s12/n12 + s22/n22)^2 /  ( (s12/n12)^2/(n12-1) + (s22/n22)^2/(n22-1) )
+
+#Prueba de 2 colas
+p2 = 2*pt(-abs(t2), df2)
+
+SE = sqrt(s12/n12 + s22/n22)
+tc2 = qt(1 - alfa1/2, df2)
+LI2 = (x1bar2 - x2bar2) - tc2 * SE
+LS2 = (x1bar2 - x2bar2) + tc2 * SE
+
+cat("Estadístico de prueba t =",t2,"\nValor crítico zf =",zf2,"\nValor p =",p2)
+cat("\nIntervalo: [",LI2,",",LS2,"]")
 ```
+Con los resultados de la prueba a mano, se obtuvo que |t| = 1.17 < 2.054 y p = 0.241 > 0.04, por lo que, siendo el estadístico menor que el valor crítico, y el valor p mayor que el nivel de significancia. No hay evidencia de que la condición económica influya en los libros leídos.
 
-Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es \> 0.05 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
+Pero también se probará con la prueba de Welch para 2 muestras, la cual obtiene:
+```{r,echo=FALSE}
+t.test(trabaja, no_trabaja, alternative = "two.sided", var.equal = FALSE, conf.level = 0.96)
+```
+Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es > 0.05 por lo tanto no hay evidencia suficiente para rechazar la hipótesis nula. Tambiene es importante notar que en el intervalo de confianza se incluye cero, lo que refuerza la idea de que no hay evidencia suficiente de una diferencia entre los libros leídos según la situación económica.
 
 **Hipótesis 3:** Existen diferencias de género en el comportamiento lector.
 
