@@ -9,6 +9,7 @@ author:
 date: "2025-10-15"
 format: pdf
 editor: visual
+fontsize: "10"
 ---
 
 ```{r setup, include=FALSE}
@@ -141,7 +142,7 @@ Donde:
 
 La hipótesis plantea que el número de libros leídos varía según la condición de actividad económica. Para probar esta afirmación, se compara a quienes trabajaron para obtener ingresos con el resto de la población.
 
-Al observar los datos en el histogramas Anexo 3 y las medidas descriptivas (Tabla 1), el número de libros leídos (p4) está muy concentrado en valores bajos: la mayoría de las personas reporta haber leído entre 0 y 5 libros en el último año, pero hay unos pocos casos que leen mucho más (hasta 70 libros), lo que genera una distribución muy asimétrica.
+Al observar los datos en el histogramas Anexo 3, el número de libros leídos (p4) está muy concentrado en valores bajos: la mayoría de las personas reporta haber leído entre 0 y 5 libros en el último año, pero hay unos pocos casos que leen mucho más (hasta 70 libros), lo que genera una distribución muy asimétrica.
 
 Además, al comparar los dos grupos de interés, la variabilidad no es la misma entre ellos. El grupo de “no trabaja” incluye a estudiantes y jubilados, cuyos hábitos de lectura son más diversos: algunos estudiantes leen mucho por sus estudios o por gusto, mientras que otras personas en esta categoría casi no leen. Esto se refleja en una mayor dispersión en este grupo en comparación con quienes trabajan.
 
@@ -187,11 +188,22 @@ Con esta prueba obtenemos p-value = 0.241 y vemos que el valor p es > 0.05 por l
 
 **Hipótesis 3:** Existen diferencias de género en el comportamiento lector.
 
-Sea "mu" la media
+Sea $\mu$la media
 
 Hipótesis Nula. No existen diferencias entre la lectura en hombres y en mujeres
 
-H0 : mu1 = mu2
+H0 : $\mu_1$ = $\mu_2$
+
+Hipótesis Alternativa. 
+
+H1 : $\mu_1$ $\neq$ $\mu_2$
+
+En este caso se intenta probar existen diferencias de género en el comportamiento lector, es decir, que hombres y mujeres podrían leer una cantidad distinta de libros por gusto.
+
+Se compara el número de libros leídos (p4) entre quienes se identificaron como hombres (sexo == 1) y mujeres (sexo == 2). Al revisar los datos de los histogramas , notamos que la distribución de lectura es muy similar entre ambos grupos: en ambos casos, la mayoría reporta haber leído entre 0 y 5 libros al año, con pocos casos extremos.
+
+Dado que los tamaños muestrales son grandes y balanceados, las varianzas pueden considerarse iguales.
+Aunque la variable p4 es sesgada, el Teorema del Límite Central hace que la distribución de la diferencia de medias sea aproximadamente normal. Por lo que se puede usar la versión clásica de la prueba t para dos muestras independientes con varianzas iguales.
 
 ```{r}
 hombres=M2224 %>% filter(sexo == 1) %>% pull(p4)
