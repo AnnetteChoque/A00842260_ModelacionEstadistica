@@ -83,7 +83,7 @@ Además, al comparar los grupos de “nivel educativo bajo” y “nivel educati
 
 Por estas razones, no se puede asumir que las varianzas fueran iguales entre los dos grupos. Por eso, se debe usar la prueba t para dos muestras independientes, que no requiere que las varianzas sean iguales y es más confiable cuando los datos están sesgados o tienen valores extremos.
 
-```{r, include=FALSE}
+```{r, echo=FALSE}
 alfa1 = 0.04
 nc = 1 - alfa1
 
@@ -108,13 +108,11 @@ df1 = (s11/n11 + s21/n21)^2 /  ( (s11/n11)^2/(n11-1) + (s21/n21)^2/(n21-1) )
 #Cola izquierda porque buscamos un valor menor
 p1 = pt(t1, df1)
 
-cat("Estadístico de prueba t =",t1)
-cat("\nValor crítico zf =",zf1)
-cat("\nValor p =",p1)
+cat("Estadístico de prueba t =",t1,"\nValor crítico zf =",zf1,"\nValor p =",p1)
 ```
 Como t = –1.781 < –1.751 y p = 0.038 < 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
 
-```{r, include=FALSE}
+```{r, echo=FALSE}
 t.test(LI1, LS1, alternative = "less", var.equal = FALSE, conf.level = 0.96)
 ```
 
@@ -126,11 +124,20 @@ Obtuvimos también que t = -1.7807 es negativo porque el gasto promedio de la cl
 
 **Hipótesis 2**: El número de libros leídos varía según la condición económica
 
-Sea "mu" la media
+Sea $\mu$ la media
 
-Hipótesis Nula. No hay diferencia entre laa condición económica y los libros leidos
+Hipótesis Nula. No hay diferencia entre laa condición económica (trabaja o no trabaja) y los libros leidos.
 
-H0 : mu1 = mu2
+H0 : $\mu_1$ = $\mu_2$
+
+Hipótesis Alternativa. 
+
+H1 : $\mu_1$ $\neq$ $\mu_2$
+
+Donde:
+
+* Trabaja: cond_act = 1 (trabaja para obtener ingresos)
+* No trabaja: cond_act $\neq$ 1 (estudiantes, jubilados,etc)
 
 ```{r}
 trabaja= M2224 %>% filter(cond_act == 1) %>% pull(p4)
