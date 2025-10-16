@@ -40,20 +40,21 @@ plotCI(1:n,X_, E ,main="Gráfico de IC", , xlab
 abline(h = 100, col = "red")
 
 ```
+
 ## Objetivo del análisis
 
 El objetivo principal de este reporte es evaluar mediante técnicas de inferencia estadística, si ciertos factores; específicamente el nivel educativo, la condición de actividad económica y el género, tienen un impacto significativo en los hábitos de lectura de los adultos mexicanos que leen por gusto. Este análisis se centra en dos indicadores clave del comportamiento lector:
 
-* El número de libros leídos en los últimos 12 meses, y
-* El monto gastado en libros durante el mismo periodo.
+-   El número de libros leídos en los últimos 12 meses, y
+-   El monto gastado en libros durante el mismo periodo.
 
 A partir de los hallazgos descriptivos de la Etapa 2 que revelaron patrones estables entre 2022 y 2024, como una mediana baja de libros leídos (2–3 al año), un gasto en libros altamente concentrado en cero y una población lectora mayormente adulta con educación media o superior, se formularon tres hipótesis que serán discutidas en este análisis inferencial:
 
-* Las personas con mayor nivel educativo gastan más en libros.
-* El número de libros leídos varía según la condición de actividad económica.
-* Existen diferencias de género en el comportamiento lector.
+-   Las personas con mayor nivel educativo gastan más en libros.
+-   El número de libros leídos varía según la condición de actividad económica.
+-   Existen diferencias de género en el comportamiento lector.
 
-Con un nivel de significancia de $\alpha$ = 0.04, se aplicarán pruebas de hipótesis e intervalos de confianza para contrastar estas afirmaciones con base en los datos de la Encuesta Nacional de Lectura (MOLEC). El propósito final es generar evidencia que permita identificar qué factores sí influyen en la lectura en México, y así contribuir para fomentar este hábito.
+Con un nivel de significancia de $\alpha$ = 0.04, se aplicarán pruebas de hipótesis e intervalos de confianza para contrastar estas afirmaciones con base en los datos de MOLEC. El propósito final es generar evidencia que permita identificar qué factores sí influyen en la lectura en México, y así contribuir para fomentar este hábito.
 
 ## Pruebas de Hipótesis
 
@@ -61,15 +62,26 @@ Con un nivel de significancia de $\alpha$ = 0.04, se aplicarán pruebas de hipó
 
 **Hipótesis 1:** Las personas con mayor nivel educativo gastan más en libros.
 
-Sea "mu" la media
+Sea $\mu$ la media
 
-Hipótesis Nula.
+Hipótesis Nula. No existe diferencia entre el promedio de gasto en libros para diferente nivel educativo (alto y bajo)
 
-H0 : mu1 = mu2. No existe diferencia entre el gasto en libros para diferente nivel educativo
+H0 : $\mu_1$ = $\mu_2$ 
 
 Hipótesis alternativa. Que las personas con mayor nivel educativo gastan más en libros.
 
-H1: mu1 \< mu2
+H1: $\mu_1$ \< $\mu_2$
+
+Donde:
+
+* Nivel bajo: nivel $\leq$ 4 (hasta bachillerato)
+* Nivel alto: nivel $\geq$ 7 (posgrados)
+
+Al observar los datos en Anexo 2, el gasto en libros está muy concentrado en cero: la mayoría de las personas no gastó nada, pero unas pocas invirtieron cantidades muy altas (incluso hasta 120,000 pesos en 2022). Esto genera una distribución muy asimétrica, con mucha dispersión.
+
+Además, al comparar los grupos de “nivel educativo bajo” y “nivel educativo alto”, vimos que la variabilidad del gasto no es la misma entre ellos: quienes tienen más estudios muestran una mayor dispersión en sus gastos (algunos gastan mucho, otros nada), mientras que en el grupo con menos escolaridad casi todos reportan gasto cero que es nuestra hipótesis a corroborar.
+
+Por estas razones, no se puede asumir que las varianzas fueran iguales entre los dos grupos. Por eso, se debe usar la prueba t para dos muestras independientes, que no requiere que las varianzas sean iguales y es más confiable cuando los datos están sesgados o tienen valores extremos.
 
 ```{r}
 LI= M2224 %>% filter(nivel <= 4) %>% pull(p7_3)
@@ -119,3 +131,5 @@ t.test(hombres, mujeres, alternative = "two.sided",var.equal = TRUE, conf.level 
 ```
 
 En este caso obtuvimos un valor de p-value = 0.1116 \> 0.05 lo cual se interpreta en que no tenemos evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intérvalo de confianza se incluye el cero, lo cual refuerza la idea de que no podemos decir que hay una diferencia significativa en el comportamiento de la lectura entre hombres y mujeres.
+
+## Anexos
