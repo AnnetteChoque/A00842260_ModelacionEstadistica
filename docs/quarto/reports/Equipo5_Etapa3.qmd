@@ -23,6 +23,7 @@ library(plotrix)
 library(dplyr)
 library(knitr)
 library(kableExtra)
+library(ggplot2)
 ```
 
 ```{r, include=FALSE}
@@ -113,16 +114,23 @@ s21 = var(LS1)
 
 t1 = (x1bar - x2bar) / sqrt(s11/n11 + s21/n21)
 
-zf1 = qnorm(alfa1)
+zf1 = qt(alfa1, df1)
 
 df1 = (s11/n11 + s21/n21)^2 /  ( (s11/n11)^2/(n11-1) + (s21/n21)^2/(n21-1) )
 
 #Cola izquierda porque buscamos un valor menor
 p1 = pt(t1, df1)
 
+se1 = sqrt(s11) / sqrt(n11) 
+se2 = sqrt(s21) / sqrt(n21)  
+
+t_crit_bilateral <- qt(0.98, df = n11 - 1) 
+
+E1 = t_crit_bilateral * se1
+E2 = t_crit_bilateral * se2
+
 cat("Estadístico de prueba t =",t1,"\nValor crítico zf =",zf1,"\nValor p =",p1)
 ```
-
 Como t = –1.781 < –1.751 y p = 0.038 < 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
 
 ```{r, echo=FALSE}
