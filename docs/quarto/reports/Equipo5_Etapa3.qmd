@@ -274,7 +274,7 @@ En este caso obtuvimos un valor de p-value = 0.1116 \> 0.04 lo cual se interpret
 
 ## Conclusión
 
-A partir del análisis inferencial realizado, se determinó que el nivel educativo sí influye de manera significativa en el gasto destinado a la compra de libros. Las pruebas de hipótesis realizadas, confirman que las personas que tienen un mayor grado académico tienden a invertir más dinero en lectura, lo que refleja una relación positiva entre la formación académica y el interés por adquirir materiales literarios. Este resultado respalda la idea de que una mayor escolaridad fomenta la disposición a destinar recursos a la lectura.
+A partir del análisis inferencial realizado (Anexo 6), se determinó que el nivel educativo sí influye de manera significativa en el gasto destinado a la compra de libros. Las pruebas de hipótesis realizadas, confirman que las personas que tienen un mayor grado académico tienden a invertir más dinero en lectura, lo que refleja una relación positiva entre la formación académica y el interés por adquirir materiales literarios. Este resultado respalda la idea de que una mayor escolaridad fomenta la disposición a destinar recursos a la lectura.
 
 Por otro lado, los resultados referentes a la condición de actividad económica y el género, mostraron que no existen diferencias estadísticamente significativas en el número de libros leídos. Esto demuestra que tanto hombres como mujeres, así como las personas que trabajan o no trabajan, tienen comportamientos lectores similares. Por lo tanto, factores como el empleo o el género no parecen determinar la frecuencia con la que los adultos mexicanos leen por gusto.
 
@@ -430,11 +430,9 @@ Anexo 6: Gráfico de Intervalos de Confianza
 ```{r, echo=FALSE, fig.width=10, fig.height=6}
 library(plotrix)
 
-# Calcular intervalos de confianza para diferentes grupos
 alfa = 0.04
 nc = 1 - alfa
 
-# Gasto por nivel educativo (bajo vs alto)
 media_bajo = mean(LI1)
 media_alto = mean(LS1)
 se_bajo = sd(LI1) / sqrt(length(LI1))
@@ -442,7 +440,6 @@ se_alto = sd(LS1) / sqrt(length(LS1))
 E_bajo = qt(1 - alfa/2, length(LI1)-1) * se_bajo
 E_alto = qt(1 - alfa/2, length(LS1)-1) * se_alto
 
-# Libros leídos por condición de actividad
 media_trabaja = mean(trabaja)
 media_no_trabaja = mean(no_trabaja)
 se_trabaja = sd(trabaja) / sqrt(length(trabaja))
@@ -450,7 +447,6 @@ se_no_trabaja = sd(no_trabaja) / sqrt(length(no_trabaja))
 E_trabaja = qt(1 - alfa/2, length(trabaja)-1) * se_trabaja
 E_no_trabaja = qt(1 - alfa/2, length(no_trabaja)-1) * se_no_trabaja
 
-# Libros leídos por sexo
 media_hombres = mean(hombres)
 media_mujeres = mean(mujeres)
 se_hombres = sd(hombres) / sqrt(length(hombres))
@@ -458,7 +454,6 @@ se_mujeres = sd(mujeres) / sqrt(length(mujeres))
 E_hombres = qt(1 - alfa/2, length(hombres)-1) * se_hombres
 E_mujeres = qt(1 - alfa/2, length(mujeres)-1) * se_mujeres
 
-# Crear el gráfico
 medias1 = c(media_bajo, media_alto)
 medias2 = c(media_trabaja, media_no_trabaja)
 medias3 = c(media_hombres, media_mujeres)
@@ -517,3 +512,4 @@ abline(v = c(2.5, 4.5), lty = 2, col = "gray")
 ```
 
 **Gráfica 8, 9, 10.** Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
+
