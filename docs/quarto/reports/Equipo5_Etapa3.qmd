@@ -272,6 +272,14 @@ t.test(hombres, mujeres, alternative = "two.sided",var.equal = TRUE, conf.level 
 
 En este caso obtuvimos un valor de p-value = 0.1116 \> 0.04 lo cual se interpreta en que no tenemos evidencia suficiente para rechazar la hipótesis nula. También es importante notar que en el intérvalo de confianza se incluye el cero, lo cual refuerza la idea de que no podemos decir que hay una diferencia significativa en el comportamiento de la lectura entre hombres y mujeres.
 
+## Conclusión
+
+A partir del análisis inferencial realizado, se determinó que el nivel educativo sí influye de manera significativa en el gasto destinado a la compra de libros. Las pruebas de hipótesis realizadas, confirman que las personas que tienen un mayor grado académico tienden a invertir más dinero en lectura, lo que refleja una relación positiva entre la formación académica y el interés por adquirir materiales literarios. Este resultado respalda la idea de que una mayor escolaridad fomenta la disposición a destinar recursos a la lectura.
+
+Por otro lado, los resultados referentes a la condición de actividad económica y el género, mostraron que no existen diferencias estadísticamente significativas en el número de libros leídos. Esto demuestra que tanto hombres como mujeres, así como las personas que trabajan o no trabajan, tienen comportamientos lectores similares. Por lo tanto, factores como el empleo o el género no parecen determinar la frecuencia con la que los adultos mexicanos leen por gusto.
+
+Los resultados muestran que el nivel educativo es el factor más relevante para explicar las diferencias en el comportamiento lector en México. Esto resalta la importancia de fortalecer la educación y promover el acceso a materiales de lectura desde etapas tempranas.
+
 ## Anexos
 
 Link del repositorio en github (docs/docs/quarto/reports):
