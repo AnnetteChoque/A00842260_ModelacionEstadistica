@@ -42,9 +42,9 @@ Este estudio se basa en un análisis descriptivo e inferencial para responder a 
 
 La población objetivo son personas mexicanas de 18 años o más que declararon leer por gusto (variable p5 = 4). A partir de la base de datos unida de los 3 años, con aproxidamente 6,000 registros y 108 variables, se seleccionaron únicamente 7 variables de interés:
 
-* Cuantitativas: edad, p4 (número de libros leídos en los últimos 12 meses) y p7_3 (gasto anual en libros, en pesos mexicanos).
+-   Cuantitativas: edad, p4 (número de libros leídos en los últimos 12 meses) y p7_3 (gasto anual en libros, en pesos mexicanos).
 
-* Categóricas: nivel (nivel educativo), cond_act (condición de actividad económica), sexo y p5 (motivo de lectura).
+-   Categóricas: nivel (nivel educativo), cond_act (condición de actividad económica), sexo y p5 (motivo de lectura).
 
 De esta base de datos se eliminaron observaciones con valores inválidos como “b” (blanco por pase), “99” o “999999” (no sabe/no especificado). Además se filtraron los registros donde p5 = 4, es decir, lectura por gusto, para enfocar el análisis en la lectura voluntaria y no en lecturas obligatorias (por trabajo o estudio). Tras este proceso, la nueva base de datos contiene 390 observaciones de las 6000 iniciales (se eliminó alrededor del 93.5% de los datos).
 
@@ -52,11 +52,11 @@ El análisis estadístico se dividió en dos fases. En la fase descriptiva, se c
 
 En la fase inferencial, se formularon tres hipótesis específicas derivadas de los hallazgos descriptivos:
 
-1. Las personas con mayor nivel educativo gastan más en libros.
-2. El número de libros leídos varía según la condición de actividad económica.
-3. Existen diferencias de género en el comportamiento lector.
+1.  Las personas con mayor nivel educativo gastan más en libros.
+2.  El número de libros leídos varía según la condición de actividad económica.
+3.  Existen diferencias de género en el comportamiento lector.
 
-Para probarlas, se utilizaron pruebas de hipótesis para dos poblaciones e intervalos de confianza al 96% (nivel de significancia $\alpha$ = 0.04). Las pruebas aplicadas fueron la prueba t de Welch para comparar el gasto en libros entre dos grupos de nivel educativo (bajo: hasta preparatoria; alto: profesional o posgrado), debido a la desigualdad de varianzas observada. Prueba t de Welch también para comparar el número de libros leídos según condición de actividad (ocupado/estudiante vs. otras categorías), y la prueba t clásica para comparar libros leídos entre hombres y mujeres.
+Para probarlas, se utilizaron pruebas de hipótesis para dos poblaciones e intervalos de confianza al 96% (nivel de significancia $\alpha$ = 0.04). Las pruebas aplicadas fueron la prueba t de Welch para comparar el gasto en libros entre dos grupos de nivel educativo (bajo: hasta preparatoria; alto: profesional o posgrado), debido a la desigualdad de varianzas observada. Prueba t de Welch también para comparar el número de libros leídos según condición de actividad (trabajador/estudiante u otras categorías), y la prueba t clásica para comparar libros leídos entre hombres y mujeres.
 
 ## Resultados
 
