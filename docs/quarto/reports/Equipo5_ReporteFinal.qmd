@@ -1,12 +1,12 @@
 ---
 title: "¿Lee más quien estudia más? Factores que influyen en la lectura por gusto - Equipo 5"
+subtitle: "Modelación estadística para la toma de decisiones"
 author:
-  - Mariana Hernández Jiménez   |   A00841920
-  - Andrea Estefanía De la Peña Contreras  |  A00840973
-  - Carolina Navarro Barrón   |   A00839486
-  - Annette Abigail Choque Millán   |  A00842260
-  - Maricarmen Terán Maturino   |   A00841435
-  - Modelación estadística para la toma de decisiones
+  - "Mariana Hernández Jiménez   -   A00841920"
+  - "Andrea Estefanía De la Peña Contreras  -  A00840973"
+  - "Carolina Navarro Barrón   -   A00839486"
+  - "Annette Abigail Choque Millán   -   A00842260"
+  - "Maricarmen Terán Maturino   -   A00841435"
 date: "2025-10-24"
 format: pdf
 editor: visual
@@ -26,7 +26,7 @@ En México, a pesar de los esfuerzos institucionales por fomentar la lectura com
 
 El análisis se estructuró en tres etapas fundamentales: exploración, preparación de datos y análisis inferencial. En la fase descriptiva, se observó que las variables cuantitativas (gasto en libros y número de libros leídos) presentan distribuciones asimétricas, con medianas cercanas a cero y una pequeña proporción de individuos que representan valores atípicos de alto consumo. Esto indica que la lectura por gusto sigue siendo una práctica minoritaria, concentrada en un segmento reducido de la población. Por otro lado, las variables cualitativas revelaron que la mayoría de los lectores por gusto tienen educación media (preparatoria o bachillerato), están ocupados o estudiando, y no hay una diferencia marcada entre hombres y mujeres.
 
-Para responder la pregunta de investigación, se aplicaron técnicas estadísticas inferenciales, incluyendo intervalos de confianza al 96% y pruebas de hipótesis (t de Student y t de Welch). Los resultados más relevantes indican que existe una relación estadísticamente significativa entre el nivel educativo y el gasto en libros: las personas con estudios superiores (profesional, maestría o doctorado) gastan significativamente más en libros que aquellas con educación básica o media (p = 0.038 < $\alpha$ = 0.04). Sin embargo, no se encontraron diferencias significativas en la cantidad de libros leídos entre hombres y mujeres (p > 0.04), ni entre diferentes condiciones de actividad económica (p > 0.04), lo que sugiere que, entre quienes ya han adoptado la lectura por gusto, no hay evidencia para afirmar que estos factores son determinantes en la lectura.
+Para responder la pregunta de investigación, se aplicaron técnicas estadísticas inferenciales, incluyendo intervalos de confianza al 96% y pruebas de hipótesis (t de Student y t de Welch). Los resultados más relevantes indican que existe una relación estadísticamente significativa entre el nivel educativo y el gasto en libros: las personas con estudios superiores (profesional, maestría o doctorado) gastan significativamente más en libros que aquellas con educación básica o media (p = 0.038 \< $\alpha$ = 0.04). Sin embargo, no se encontraron diferencias significativas en la cantidad de libros leídos entre hombres y mujeres (p \> 0.04), ni entre diferentes condiciones de actividad económica (p \> 0.04), lo que sugiere que, entre quienes ya han adoptado la lectura por gusto, no hay evidencia para afirmar que estos factores son determinantes en la lectura.
 
 En conclusión, el nivel educativo es el único factor que influye de manera significativa en el gasto destinado a la compra de libros por gusto. No se encontró evidencia estadística de que el sexo o la condición laboral afecten el comportamiento lector dentro del grupo que ya lee por placer. Esto implica que el sistema educativo juega un papel central en la formación de lectores comprometidos, mientras que factores como el tiempo libre o el ingreso no parecen ser los impulsores principales de la lectura voluntaria.
 
@@ -40,39 +40,20 @@ Se aborda la problemática general y se concluye con el problema que se abordar�
 
 ## Metodología
 
-Se menciona cómo se abordará la pregunta rectora (es decir, a través del análisis de qué variables o preguntas secundarias)
-Se menciona la fuente de datos, la población objetivo y la dimensión de los datos. Así como la elección de la muestra y tipo de muestreo, limpieza de datos, etc
-Se indican los análisis estadísticos que van a utilizar, justificando por qué dicho análisis es útil para responder a su pregunta de investigación.
-Se propone el nivel de significación del análisis estadístico
+Se menciona cómo se abordará la pregunta rectora (es decir, a través del análisis de qué variables o preguntas secundarias) Se menciona la fuente de datos, la población objetivo y la dimensión de los datos. Así como la elección de la muestra y tipo de muestreo, limpieza de datos, etc Se indican los análisis estadísticos que van a utilizar, justificando por qué dicho análisis es útil para responder a su pregunta de investigación. Se propone el nivel de significación del análisis estadístico
 
 ## Resultados
 
-Se incluyen los resultados del análisis exploratorio de las variables asociadas (descriptivo). Separa las variables cuantitativas de las cualitativas, haz tablas resumen de medidas estadísticas y gráficos por variable. Comenta e interpreta las tablas y gráficos que incluyas
-Se incluye el análisis estadístico inferencial: al menos cuatro intervalos de confianza y tres pruebas de hipótesis de dos poblaciones (diferencia de medias o de proporciones o cociente de varianzas, Chi cuadrada o ANOVA): Retoma la Etapa 3 para revisar esto. Comenta e interpreta los resultados de este análisis. En caso de que hayas recurrido a otros análisis estadísticos indícalo.
-Se verifican los supuestos de los modelos probabilísticos usados (normalidad, homogeneidad de varianzas, número de información por casilla, etc)
-Resume en tablas tus resultados, no es necesario que incluyas los procedimientos paso a paso. Por ejemplo, todos los intervalos de confianza los puedes colocar en una tabla que incluya cota inferior y cota superior. En las pruebas de hipótesis, resume en estadístico de prueba y valor p. Auxíliate de gráficos que muestren varios de tus resultados. Interpreta cada uno de estos recursos gráficos antes o inmediatamente después de ellos.
-Las pruebas de hipótesis incluyen las hipótesis (H0 y H1), el valor crítico y el nivel de significancia de la prueba.
+Se incluyen los resultados del análisis exploratorio de las variables asociadas (descriptivo). Separa las variables cuantitativas de las cualitativas, haz tablas resumen de medidas estadísticas y gráficos por variable. Comenta e interpreta las tablas y gráficos que incluyas Se incluye el análisis estadístico inferencial: al menos cuatro intervalos de confianza y tres pruebas de hipótesis de dos poblaciones (diferencia de medias o de proporciones o cociente de varianzas, Chi cuadrada o ANOVA): Retoma la Etapa 3 para revisar esto. Comenta e interpreta los resultados de este análisis. En caso de que hayas recurrido a otros análisis estadísticos indícalo. Se verifican los supuestos de los modelos probabilísticos usados (normalidad, homogeneidad de varianzas, número de información por casilla, etc) Resume en tablas tus resultados, no es necesario que incluyas los procedimientos paso a paso. Por ejemplo, todos los intervalos de confianza los puedes colocar en una tabla que incluya cota inferior y cota superior. En las pruebas de hipótesis, resume en estadístico de prueba y valor p. Auxíliate de gráficos que muestren varios de tus resultados. Interpreta cada uno de estos recursos gráficos antes o inmediatamente después de ellos. Las pruebas de hipótesis incluyen las hipótesis (H0 y H1), el valor crítico y el nivel de significancia de la prueba.
 
 ## Discusión y conclusiones
 
-Integra la información obtenida a partir del análisis de datos que realizaste
-Establece limitaciones del análisis. Dentro de las limitaciones incluye los supuestos de los análisis que realizaste.
-Establece nuevas preguntas de investigación que se suscitaron a partir del análisis (creatividad)
-Indica qué sí se pudo responder de la pregunta de investigación de acuerdo con su análisis y qué no fue posible.
-Haz recomendaciones fundamentadas con su estudio y comentar las consecuencias que podría tener no atenderlas.
-Indicar qué recomendaciones hacia nosotros mismos serían adecuadas de acuerdo con su investigación, si las hubiera.
-Asegurarse de que las conclusiones se sustenten en el análisis de los datos realizado o en referencias bibliográficas (cítalas)
+Integra la información obtenida a partir del análisis de datos que realizaste Establece limitaciones del análisis. Dentro de las limitaciones incluye los supuestos de los análisis que realizaste. Establece nuevas preguntas de investigación que se suscitaron a partir del análisis (creatividad) Indica qué sí se pudo responder de la pregunta de investigación de acuerdo con su análisis y qué no fue posible. Haz recomendaciones fundamentadas con su estudio y comentar las consecuencias que podría tener no atenderlas. Indicar qué recomendaciones hacia nosotros mismos serían adecuadas de acuerdo con su investigación, si las hubiera. Asegurarse de que las conclusiones se sustenten en el análisis de los datos realizado o en referencias bibliográficas (cítalas)
 
 ## Referencias
 
-En formato APA
-Incluye la referencia completa de la base de datos
-Al menos 2 citas de artículos o libros
-A lo más 2 de páginas Web (a parte de la cita de la base de datos)
-Todas las referencias bibliográficas aquí mencionadas deben estar citadas en la descripción del proyecto
-Asegúrate de consultar fuentes confiables (las páaginas web deben tener autor e información del autor)
+En formato APA Incluye la referencia completa de la base de datos Al menos 2 citas de artículos o libros A lo más 2 de páginas Web (a parte de la cita de la base de datos) Todas las referencias bibliográficas aquí mencionadas deben estar citadas en la descripción del proyecto Asegúrate de consultar fuentes confiables (las páaginas web deben tener autor e información del autor)
 
 ## Anexos
 
-Incluye una liga en web a una carpeta que contenga tus documentos de análisis (R, Python o ambos) y el archivo de tu base de datos. La liga puede ser a una carpeta en Drive o Google o a un notebook en web.
-Incluyan los anexos que consideres necesarios. Los anexos pueden ser información importante que es demasiado extensa para incluirla en tu reporte, pero que mencionas y analizas en el cuerpo de tu reporte
+Incluye una liga en web a una carpeta que contenga tus documentos de análisis (R, Python o ambos) y el archivo de tu base de datos. La liga puede ser a una carpeta en Drive o Google o a un notebook en web. Incluyan los anexos que consideres necesarios. Los anexos pueden ser información importante que es demasiado extensa para incluirla en tu reporte, pero que mencionas y analizas en el cuerpo de tu reporte

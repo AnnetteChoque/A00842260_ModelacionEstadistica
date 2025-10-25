@@ -1,5 +1,4 @@
 ---
-.---
 title: "Etapa 3: Análisis Inferencial"
 author:
   - Mariana Hernández Jiménez   |   A00841920
