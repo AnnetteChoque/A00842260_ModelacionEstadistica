@@ -38,7 +38,25 @@ Se aborda la problemática general y se concluye con el problema que se abordar�
 
 ## Metodología
 
-Se menciona cómo se abordará la pregunta rectora (es decir, a través del análisis de qué variables o preguntas secundarias) Se menciona la fuente de datos, la población objetivo y la dimensión de los datos. Así como la elección de la muestra y tipo de muestreo, limpieza de datos, etc Se indican los análisis estadísticos que van a utilizar, justificando por qué dicho análisis es útil para responder a su pregunta de investigación. Se propone el nivel de significación del análisis estadístico
+Este estudio se basa en un análisis descriptivo e inferencial para responder a la pregunta de investigación: ¿Cómo influyen el nivel educativo, la condición de actividad económica, el sexo y la edad en el gasto en libros y la cantidad de libros leídos por adultos mexicanos que reportan leer por gusto? El análisis se realizó con datos del Módulo de Lectura (MOLEC), elaborado por el Instituto Nacional de Estadística y Geografía (INEGI), correspondientes a los años 2022, 2023 y 2024.
+
+La población objetivo son personas mexicanas de 18 años o más que declararon leer por gusto (variable p5 = 4). A partir de la base de datos unida de los 3 años, con aproxidamente 6,000 registros y 108 variables, se seleccionaron únicamente 7 variables de interés:
+
+* Cuantitativas: edad, p4 (número de libros leídos en los últimos 12 meses) y p7_3 (gasto anual en libros, en pesos mexicanos).
+
+* Categóricas: nivel (nivel educativo), cond_act (condición de actividad económica), sexo y p5 (motivo de lectura).
+
+De esta base de datos se eliminaron observaciones con valores inválidos como “b” (blanco por pase), “99” o “999999” (no sabe/no especificado). Además se filtraron los registros donde p5 = 4, es decir, lectura por gusto, para enfocar el análisis en la lectura voluntaria y no en lecturas obligatorias (por trabajo o estudio). Tras este proceso, la nueva base de datos contiene 390 observaciones de las 6000 iniciales (se eliminó alrededor del 93.5% de los datos).
+
+El análisis estadístico se dividió en dos fases. En la fase descriptiva, se calcularon medidas de tendencia central (media, mediana), dispersión (desviación estándar, rango intercuartílico) y posición (cuartiles), y se generaron gráficos exploratorios (histogramas y diagramas de caja) para caracterizar la distribución de las variables, lo permitió identificar patrones como la asimetría en el gasto y los libros leídos, así como la concentración de la población lectora por gusto en adultos de entre 20 y 50 años.
+
+En la fase inferencial, se formularon tres hipótesis específicas derivadas de los hallazgos descriptivos:
+
+1. Las personas con mayor nivel educativo gastan más en libros.
+2. El número de libros leídos varía según la condición de actividad económica.
+3. Existen diferencias de género en el comportamiento lector.
+
+Para probarlas, se utilizaron pruebas de hipótesis para dos poblaciones e intervalos de confianza al 96% (nivel de significancia $\alpha$ = 0.04). Las pruebas aplicadas fueron la prueba t de Welch para comparar el gasto en libros entre dos grupos de nivel educativo (bajo: hasta preparatoria; alto: profesional o posgrado), debido a la desigualdad de varianzas observada. Prueba t de Welch también para comparar el número de libros leídos según condición de actividad (ocupado/estudiante vs. otras categorías), y la prueba t clásica para comparar libros leídos entre hombres y mujeres.
 
 ## Resultados
 
