@@ -1,4 +1,5 @@
 ---
+.---
 title: "Etapa 3: Análisis Inferencial"
 author:
   - Mariana Hernández Jiménez   |   A00841920
@@ -131,7 +132,8 @@ E2 = t_crit_bilateral * se2
 
 cat("Estadístico de prueba t =",t1,"\nValor crítico =",zf1,"\nValor p =",p1)
 ```
-Como t = –1.781 < –1.751 y p = 0.038 < 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
+
+Como t = –1.781 \< –1.751 y p = 0.038 \< 0.04, hay evidencia suficiente para rechazar la hipótesis. Esto lo podemos verificar mediante la prueba de t-student, donde:
 
 ```{r, echo=FALSE}
 t.test(LI1, LS1, alternative = "less", var.equal = FALSE, conf.level = 0.96)
@@ -139,7 +141,7 @@ t.test(LI1, LS1, alternative = "less", var.equal = FALSE, conf.level = 0.96)
 
 En esta prueba obtenemos: p-value = 0.03814 y tomamos el valor de significancia como 0.04
 
-Como el valor p < 0.04 entonces se rechaza la hipótesis nula y decimos que el nivel educativo si hace una diferencia en el gasto en libros.
+Como el valor p \< 0.04 entonces se rechaza la hipótesis nula y decimos que el nivel educativo si hace una diferencia en el gasto en libros.
 
 Obtuvimos también que t = -1.7807 es negativo porque el gasto promedio de la clase de menor nivel educativo es menor que el promedio de los de mayor nivel educativo. Esto nos lleva a concluir que las personas con mayor nivel educativo gastan más en libros.
 
@@ -385,7 +387,7 @@ kable(tabla_cuant_combinada,
 ```
 
 |      | Media   | Mediana | R-M     | Desviacion | CV     | Q1  | Q2  | Q3   | Sesgo | Curtosis |
-|-----|-------|--------|-------|---------|-------|-----|------|------|-------|--------|
+|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | edad | 42.00   | 40      | 50.5    | 15.69      | 37.35  | 29  | 40  | 54   | 0.52  | 2.27     |
 | p7_3 | 1158.14 | 500     | 60005.0 | 6149.18    | 530.95 | 250 | 500 | 1000 | 18.53 | 357.75   |
 | p4   | 3.99    | 3       | 25.5    | 5.62       | 140.69 | 2   | 3   | 4    | 4.95  | 32.34    |
@@ -393,7 +395,7 @@ kable(tabla_cuant_combinada,
 ### Anexo 4: Comparación de gasto por nivel educativo
 
 ```{r, echo=FALSE, fig.width=10, fig.height=5}
-par(mfrow = c(1,2))
+par(mfrow = c(1,1))
 
 # Boxplot del gasto por nivel educativo
 boxplot(p7_3 ~ nivel, data = M2224,
@@ -421,6 +423,38 @@ legend("topright",
        fill = c(rgb(1,0,0,0.5), rgb(0,0,1,0.5)))
 
 par(mfrow = c(1,1))
+
+# Configurar la ventana gráfica para mostrar 1 fila y 2 columnas
+par(mfrow = c(1, 2))
+
+# Histograma para Nivel Bajo (≤4)
+hist(LI1, 
+     main = "Gasto en libros - Nivel educativo bajo (≤4)", 
+     xlab = "Gasto (pesos)", 
+     col = rgb(1,0,0,0.5), 
+     border = "white",
+     breaks = 30,
+     ylim = c(0, max(c(length(LI1[LI1 < 5000]), length(LS1[LS1 < 5000])))),
+     xlim = c(0, 10000))
+legend("topright", 
+       legend = "Nivel bajo (≤4)", 
+       fill = rgb(1,0,0,0.5))
+
+# Histograma para Nivel Alto (≥7)
+hist(LS1, 
+     main = "Gasto en libros - Nivel educativo alto (≥7)", 
+     xlab = "Gasto (pesos)", 
+     col = rgb(0,0,1,0.5), 
+     border = "white",
+     breaks = 30,
+     ylim = c(0, max(c(length(LI1[LI1 < 5000]), length(LS1[LS1 < 5000])))),
+     xlim = c(0, 10000))
+# Añadir leyenda dentro del segundo histograma (opcional)
+legend("topright", 
+       legend = "Nivel alto (≥7)", 
+       fill = rgb(0,0,1,0.5))
+
+par(mfrow = c(1, 1))
 ```
 
 **Gráficas 6, 7.** Comparación del gasto en libros según nivel educativo (2022-2024).
@@ -467,7 +501,7 @@ colores1 = c("red", "blue")
 colores2 = c("green", "orange")
 colores3 = c("purple", "pink")
 
-par(mfrow = c(1, 3))
+par(mfrow = c(1, 1))
 plotCI(1:2, medias1, errores1,
        main = "Hipótesis 1. Gasto en libros",
        xlab = "Grupos comparados", 
@@ -512,4 +546,3 @@ abline(v = c(2.5, 4.5), lty = 2, col = "gray")
 ```
 
 **Gráfica 8, 9, 10.** Intervalos de confianza al 96% para las medias de los grupos comparados en las tres hipótesis. Las barras de error representan el margen de error para cada grupo. Cuando los intervalos no se traslapan, sugiere diferencias significativas entre grupos.
-

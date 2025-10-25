@@ -1,0 +1,39 @@
+---
+title: "¿Lee más quien estudia más? Factores que influyen en la lectura por gusto"
+author:
+  - Mariana Hernández Jiménez   |   A00841920
+  - Andrea Estefanía De la Peña Contreras  |  A00840973
+  - Carolina Navarro Barrón   |   A00839486
+  - Annette Abigail Choque Millán   |  A00842260
+  - Maricarmen Terán Maturino   |   A00841435
+date: "2025-10-24"
+format: pdf
+editor: visual
+fontsize: "10"
+geometry:
+  - top=20mm
+  - left=20mm
+  - right=20mm
+  - heightrounded
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
