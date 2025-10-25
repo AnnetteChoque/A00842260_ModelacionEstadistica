@@ -1,39 +1,35 @@
 ---
-title: "¿Lee más quien estudia más? Factores que influyen en la lectura por gusto"
+title: "¿Lee más quien estudia más? Factores que influyen en la lectura por gusto - Equipo 5"
 author:
   - Mariana Hernández Jiménez   |   A00841920
   - Andrea Estefanía De la Peña Contreras  |  A00840973
   - Carolina Navarro Barrón   |   A00839486
   - Annette Abigail Choque Millán   |  A00842260
   - Maricarmen Terán Maturino   |   A00841435
+  - Modelación estadística para la toma de decisiones
 date: "2025-10-24"
 format: pdf
 editor: visual
-fontsize: "10"
-geometry:
-  - top=20mm
-  - left=20mm
-  - right=20mm
-  - heightrounded
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
 ```
 
-You can add options to executable code like this
+## Resumen
 
-```{r}
-#| echo: false
-2 * 2
-```
+En México, a pesar de los esfuerzos institucionales por fomentar la lectura como herramienta fundamental para el desarrollo personal, social y económico, persiste un rezago significativo en su práctica cotidiana. Este estudio se enfoca en comprender cómo factores sociodemográficos, específicamente el nivel educativo, la condición de actividad económica y el sexo influyen en dos indicadores clave del hábito lector: el gasto anual en libros y la cantidad de libros leídos por adultos mexicanos que declaran leer por gusto. Para ello, se utilizó la información proveniente del Módulo de Lectura (MOLEC) del Instituto Nacional de Estadística y Geografía (INEGI), correspondiente a los años 2022, 2023 y 2024, seleccionando únicamente a los encuestados que reportaron leer por gusto y filtrando valores inválidos como “no sabe” o “blanco por pase”.
 
-The `echo: false` option disables the printing of code (only output is displayed).
+El análisis se estructuró en tres etapas fundamentales: exploración, preparación de datos y análisis inferencial. En la fase descriptiva, se observó que las variables cuantitativas (gasto en libros y número de libros leídos) presentan distribuciones asimétricas, con medianas cercanas a cero y una pequeña proporción de individuos que representan valores atípicos de alto consumo. Esto indica que la lectura por gusto sigue siendo una práctica minoritaria, concentrada en un segmento reducido de la población. Por otro lado, las variables cualitativas revelaron que la mayoría de los lectores por gusto tienen educación media (preparatoria o bachillerato), están ocupados o estudiando, y no hay una diferencia marcada entre hombres y mujeres.
+
+Para responder la pregunta de investigación, se aplicaron técnicas estadísticas inferenciales, incluyendo intervalos de confianza al 96% y pruebas de hipótesis (t de Student y t de Welch). Los resultados más relevantes indican que existe una relación estadísticamente significativa entre el nivel educativo y el gasto en libros: las personas con estudios superiores (profesional, maestría o doctorado) gastan significativamente más en libros que aquellas con educación básica o media (p = 0.038 < $\alpha$ = 0.04). Sin embargo, no se encontraron diferencias significativas en la cantidad de libros leídos entre hombres y mujeres (p > 0.04), ni entre diferentes condiciones de actividad económica (p > 0.04), lo que sugiere que, entre quienes ya han adoptado la lectura por gusto, no hay evidencia para afirmar que estos factores son determinantes en la lectura.
+
+En conclusión, el nivel educativo es el único factor que influye de manera significativa en el gasto destinado a la compra de libros por gusto. No se encontró evidencia estadística de que el sexo o la condición laboral afecten el comportamiento lector dentro del grupo que ya lee por placer. Esto implica que el sistema educativo juega un papel central en la formación de lectores comprometidos, mientras que factores como el tiempo libre o el ingreso no parecen ser los impulsores principales de la lectura voluntaria.
+
+Con base en estos hallazgos, se proponen estrategias para fomentar la lectura desde contextos cotidianos y entretenidos. Primero, colocar mini relatos en los respaldos de los asientos del metro o autobuses, transformando tiempos muertos de viaje en experiencias literarias que despierten curiosidad. Segundo, exhibir “trailers literarios” antes de las películas en cines: escenas dramatizadas que concluyan revelando que la historia continúa en un libro, vinculando la emoción cinematográfica con el deseo de leer. Ambas propuestas buscan hacer la lectura accesible, atractiva y natural, aprovechando hábitos en la vida diaria para sembrar interés por los libros.
+
+Este análisis no solo responde la pregunta de investigación, confirmando que el nivel educativo sí influye en el gasto, pero otros factores no, sino que también ofrece recomendaciones creativas y viables para acercar la lectura a más mexicanos, especialmente a quienes aún no la han incorporado como hábito.
