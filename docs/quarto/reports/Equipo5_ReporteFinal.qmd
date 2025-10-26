@@ -391,12 +391,17 @@ En las gráficas 6 y 7, correspondientes a las hipótesis 2 y 3, se puede observ
 
 ## Discusión y conclusiones
 
-Como respuesta a la pregunta de investigación y a partir del análisis descriptivo e inferencial,  podemos concluir que el nivel educativo influye de manera significativa en el gasto destinado a la compra de libros, es decir, las personas con mayor grado académico (hasta licenciatura o posgrados)  invierten más en la lectura, que aquellas personas con un menor grado académico (quienes terminaron hasta el bachillerato o menores niveles académicos). Por otro lado, no se encontraron diferencias significativas en el número de libros leídos según género o condición laboral, es decir, hombres, mujeres, trabajadores y no trabajadores presentan hábitos de lectura similares. En resumen, el nivel educativo es el factor que más influye en el gasto en libros por gusto; esto resalta la importancia de fortalecer la educación y promover el acceso a materiales de lectura desde etapas tempranas, así como nutrir el interés y la curiosidad de la población por consumir contenido literario que aporte en su formación.
+Como respuesta a la pregunta de investigación y a partir del análisis descriptivo e inferencial realizado, podemos concluir que el nivel educativo influye de manera significativa en el gasto destinado a la compra de libros. Es decir, las personas con mayor grado académico (hasta licenciatura o posgrados)  invierten más en la lectura, que aquellas personas con un menor grado académico (quienes terminaron hasta el bachillerato o menores niveles académicos). Este hallazgo coincide con la tendencia observada en los datos descriptivos, donde el promedio de gasto en libros aumenta conforme se eleva el nivel educativo. Esto sugiere que la formación académica no solo amplía el hábito de lectura, sino que también fomenta una mayor valoración del conocimiento.
 
-A partir de los resultados obtenidos, se proponen dos propuestas que buscan fomentar el habito de la lectura en los adultos mexicanos, sobre todo aquello cuyo nivel educativo se considera inferior. Las dos propuestas son:
+Por otro lado, no se encontraron diferencias fundamentales en el número de libros leídos según género o condición laboral, es decir, hombres, mujeres, trabajadores y no trabajadores presentan hábitos de lectura similares. Estos resultados reflejan que el acceso a la lectura no depende necesariamente de las condiciones laborales ni del sexo, sino de factores más estructurales, como el nivel educativo.
 
+En resumen, el nivel educativo es el factor que más influye en el gasto en libros por gusto; esto resalta la importancia de fortalecer la educación y promover el acceso a materiales de lectura desde etapas tempranas, así como nutrir el interés y la curiosidad de la población por consumir contenido literario que aporte en su formación.
+
+De igual manera, para profundizar más en el hábito de lectura y tomando en cuenta nuestra hipótesis que comprobamos, nos podemos hacer nuevas preguntas de investigación:
+1. ¿Existe relación entre tipo de libros leídos (como el género) y el nivel educativo de los lectores?
+2. ¿Cómo impacta la lectura digital y física en los patrones de gasto y cantidad de libros consumidos?
+A partir de los resultados obtenidos, se proponen dos propuestas que buscan fomentar el hábito de la lectura en los adultos mexicanos, sobre todo aquellos cuyo nivel educativo se considera inferior. Las dos propuestas son:
 1. Colocar mini relatos en los respaldos de los asientos de autobuses/metro, transformando tiempos muertos de viaje en experiencias literarias breves que capturan la atención de los pasajeros y siembran curiosidad por la lectura.
-
 2. Antes de cada película, mostramos un tráiler literario: una escena dramatizada que termina revelando que la historia continúa en un libro, aprovechando la audiencia para conectar la emoción cinematográfica con la lectura.
 
 Ambas propuestas aprovechan el contexto cotidiano y el entretenimiento para introducir la lectura de manera natural, accesible y atractiva. Se busca despertar la curiosidad por leer y generar un interés gradual por los libros.
