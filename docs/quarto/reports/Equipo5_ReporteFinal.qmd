@@ -17,6 +17,7 @@ geometry:
   - right=22mm
   - heightrounded
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
@@ -24,6 +25,7 @@ library(knitr)
 library(kableExtra)
 library(ggplot2)
 ```
+
 ## Resumen
 
 En México, a pesar de los esfuerzos institucionales por fomentar la lectura como herramienta fundamental para el desarrollo personal, social y económico, persiste un rezago significativo en su práctica cotidiana. Este estudio se enfoca en comprender cómo factores sociodemográficos, específicamente el nivel educativo, la condición de actividad económica y el sexo influyen en dos indicadores clave del hábito lector: el gasto anual en libros y la cantidad de libros leídos por adultos mexicanos que declaran leer por gusto. Para ello, se utilizó la información proveniente del Módulo de Lectura (MOLEC) del Instituto Nacional de Estadística y Geografía (INEGI), de los años 2022 a 2024, se trabajó con una muestra de 390 personas que respondieron afirmativamente a leer por gusto, tras eliminar valores inválidos como “no sabe” o “blanco por pase”.
@@ -44,7 +46,7 @@ Se aborda la problemática general y se concluye con el problema que se abordar�
 
 Este estudio se basa en un análisis descriptivo e inferencial para responder a la pregunta de investigación: ¿Cómo influyen el nivel educativo, la condición de actividad económica, el sexo y la edad en el gasto en libros y la cantidad de libros leídos por adultos mexicanos que reportan leer por gusto? El análisis se realizó con datos del Módulo de Lectura (MOLEC), elaborado por el Instituto Nacional de Estadística y Geografía (INEGI), correspondientes a los años 2022, 2023 y 2024.
 
-La población objetivo son personas mexicanas de 18 años o más que declararon leer por gusto (variable p5 = 4). A partir de la base de datos unida de los 3 años, con aproxidamente 6,000 registros y 108 variables, se seleccionaron únicamente 7 variables de interés:
+La población objetivo son personas mexicanas de 18 años o más que declararon leer por gusto (variable p5 = 4). A partir de la base de datos unida de los 3 años, con aproximadamente 6,000 registros y 108 variables, se seleccionaron únicamente 7 variables de interés:
 
 -   Cuantitativas: edad, p4 (número de libros leídos en los últimos 12 meses) y p7_3 (gasto anual en libros, en pesos mexicanos).
 
@@ -71,6 +73,10 @@ Se incluyen los resultados del análisis exploratorio de las variables asociadas
 Integra la información obtenida a partir del análisis de datos que realizaste Establece limitaciones del análisis. Dentro de las limitaciones incluye los supuestos de los análisis que realizaste. Establece nuevas preguntas de investigación que se suscitaron a partir del análisis (creatividad) Indica qué sí se pudo responder de la pregunta de investigación de acuerdo con su análisis y qué no fue posible. Haz recomendaciones fundamentadas con su estudio y comentar las consecuencias que podría tener no atenderlas. Indicar qué recomendaciones hacia nosotros mismos serían adecuadas de acuerdo con su investigación, si las hubiera. Asegurarse de que las conclusiones se sustenten en el análisis de los datos realizado o en referencias bibliográficas (cítalas)
 
 ## Referencias
+
+Escudero, E. B. (2025, April 8). La lectura en México. El Universal. <https://www.eluniversal.com.mx/opinion/eduardo-backhoff-escudero/la-lectura-en-mexico/>
+
+Ife, O. \|. (2022, May 31). La comprensión lectora: un reto para alumnos y maestros - Observatorio / Instituto para el Futuro de la Educación. Observatorio / Instituto Para El Futuro De La Educación. <https://observatorio.tec.mx/edu-bits-blog/2017-8-21-la-comprensin-lectora-un-reto-para-alumnos-y-maestros/>
 
 En formato APA Incluye la referencia completa de la base de datos Al menos 2 citas de artículos o libros A lo más 2 de páginas Web (a parte de la cita de la base de datos) Todas las referencias bibliográficas aquí mencionadas deben estar citadas en la descripción del proyecto Asegúrate de consultar fuentes confiables (las páaginas web deben tener autor e información del autor)
 

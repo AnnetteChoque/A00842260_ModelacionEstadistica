@@ -297,7 +297,7 @@ for (v in names(Datos_cuant_combinados)) {
   hist(Datos_cuant_combinados[[v]], 
        main = paste("Histograma de", v, "(2022-2024)"), 
        xlab = v, col = "steelblue", border = "white",
-       breaks = 20)
+       breaks = 40)
 }
 par(mfrow = c(1,1))
 ```
@@ -415,7 +415,7 @@ hist(LI1,
 hist(LS1, 
      col = rgb(0,0,1,0.5), 
      border = "white",
-     breaks = 30,
+     breaks = 20,
      add = TRUE)
 legend("topright", 
        legend = c("Nivel bajo (≤4)", "Nivel alto (≥7)"), 
@@ -445,8 +445,8 @@ hist(LS1,
      xlab = "Gasto (pesos)", 
      col = rgb(0,0,1,0.5), 
      border = "white",
-     breaks = 30,
-     ylim = c(0, max(c(length(LI1[LI1 < 5000]), length(LS1[LS1 < 5000])))),
+     breaks = 150,
+     ylim = c(0, max(c(length(LI1[LI1 < 10000]), length(LS1[LS1 < 10000])))),
      xlim = c(0, 10000))
 # Añadir leyenda dentro del segundo histograma (opcional)
 legend("topright", 
