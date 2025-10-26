@@ -78,6 +78,65 @@ Las variables cuantitativas analizadas fueron edad, gasto mensual en libros y n�
 | p7_3 | 1158.14 | 500     | 60005.0 | 6149.18    | 530.95 | 250 | 500 | 1000 | 18.53 | 357.75   |
 | p4   | 3.99    | 3       | 25.5    | 5.62       | 140.69 | 2   | 3   | 4    | 4.95  | 32.34    |
 
+Variables cualitativas
+La Tabla muestra la distribución de las variables cualitativas. Por ejemplo, se observa 57.4% de mujeres y 42.6% de hombres; 65.6% de personas que trabajan frente a 34.4% que no; y la mayor parte de la muestra se concentra en el nivel educativo Alto. Estos perfiles ayudan a contextualizar los resultados inferenciales: p. ej., la mayoría tiene nivel educativo alto, esto puede estar relacionado con mayores promedios de gasto en libros.
+
+```{r, echo=FALSE}
+M22242 <- M2224 %>%
+mutate(
+sexo_cat = case_when(
+!is.na(sexo) & sexo == 1 ~ "Hombre",
+!is.na(sexo) & sexo == 2 ~ "Mujer",
+TRUE ~ NA_character_
+),
+condact_cat = case_when(
+!is.na(cond_act) & cond_act == 1 ~ "Trabaja",
+!is.na(cond_act) & cond_act != 1 ~ "No trabaja",
+TRUE ~ NA_character_
+),
+# Agrupar 'nivel' en categorías (ajusta umbrales si lo deseas)
+nivel_cat = case_when(
+!is.na(nivel) & nivel <= 4 ~ "Bajo (≤4)",
+!is.na(nivel) & nivel >= 7 ~ "Alto (≥7)",
+!is.na(nivel) & nivel %in% 5:6 ~ "Medio (5-6)",
+TRUE ~ NA_character_
+)
+)
+
+vars_cat <- c("sexo_cat", "condact_cat", "nivel_cat")
+
+
+freq_table <- function(df, var) {
+df %>%
+filter(!is.na(.data[[var]])) %>% # excluir NAs
+count(!!sym(var)) %>% # frecuencia
+mutate(
+Porcentaje = round(100 * n / sum(n), 1) # porcentaje
+) %>%
+rename(Categoría = !!sym(var), Frecuencia = n) %>%
+mutate(Variable = case_when(
+var == "sexo_cat" ~ "Sexo",
+var == "condact_cat" ~ "Condición de actividad",
+var == "nivel_cat" ~ "Nivel educativo",
+TRUE ~ var
+)) %>%
+select(Variable, Categoría, Frecuencia, Porcentaje)
+}
+
+tabla1_cualitativas <- bind_rows(lapply(vars_cat, function(v) freq_table(M22242, v)))
+
+
+tabla1_cualitativas <- tabla1_cualitativas %>% arrange(Variable, desc(Frecuencia))
+
+kable(
+tabla1_cualitativas,
+caption = "Tabla 1. Distribución de frecuencias de variables cualitativas (2022-2024)",
+align = c("l", "l", "r", "r"),
+digits = 1
+) %>%
+kable_styling(full_width = FALSE, font_size = 9, bootstrap_options = c("striped", "condensed"))
+```
+
 Tabla 1. Medidas estádisticas de las variables seleccionadas
 
 ## Discusión y conclusiones
