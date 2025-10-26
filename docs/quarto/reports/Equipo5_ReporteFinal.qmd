@@ -13,8 +13,8 @@ editor: visual
 fontsize: "10"
 geometry:
   - top=20mm
-  - left=22mm
-  - right=22mm
+  - left=25mm
+  - right=25mm
   - heightrounded
 ---
 
@@ -57,7 +57,7 @@ Teniendo esto en cuenta, la pregunta que nos planteamos es la siguiente: **¿Có
 
 ## Metodología
 
-Este estudio se basa en un análisis descriptivo e inferencial para responder a la pregunta de investigación: ¿Cómo influyen el nivel educativo, la condición de actividad económica, el sexo y la edad en el gasto en libros y la cantidad de libros leídos por adultos mexicanos que reportan leer por gusto? El análisis se realizó con datos del Módulo de Lectura (MOLEC), elaborado por el Instituto Nacional de Estadística y Geografía (INEGI), correspondientes a los años 2022, 2023 y 2024.
+Este estudio se basa en un análisis descriptivo e inferencial para responder a la pregunta de investigación mencionada anteriormente. El análisis se realizó con datos del Módulo de Lectura (MOLEC), elaborado por el Instituto Nacional de Estadística y Geografía (INEGI), correspondientes a los años 2022, 2023 y 2024.
 
 La población objetivo son personas mexicanas de 18 años o más que declararon leer por gusto (variable p5 = 4). A partir de la base de datos unida de los 3 años, con aproximadamente 6,000 registros y 108 variables, se seleccionaron únicamente 7 variables de interés:
 
@@ -167,6 +167,119 @@ digits = 1
 ) %>%
 kable_styling(full_width = FALSE, font_size = 9, bootstrap_options = c("striped", "condensed"))
 ```
+#### **Análisis inferencial**
+
+Con base en los patrones descriptivos, se formularon tres hipótesis y se aplicaron pruebas estadísticas con un nivel de significancia $\alpha$ = 0.04 (intervalos de confianza al 96%).
+
+**Hipótesis 1: Nivel educativo y gasto en libros**
+
+* H0: No hay diferencia en el gasto promedio en libros entre personas con nivel educativo bajo (hasta preparatoria) y alto (profesional o posgrado).
+
+* H1: Las personas con mayor nivel educativo gastan más en libros.
+
+Se compararon dos grupos según el nivel educativo:
+
+* Nivel bajo: hasta preparatoria o bachillerato (nivel ≤ 4)
+* Nivel alto: profesional, maestría o doctorado (nivel ≥ 7)
+
+Dado que las varianzas del gasto en libros eran desiguales entre los grupos y la distribución era altamente asimétrica (como se observa en el Anexo 2), se utilizó la prueba t de Welch para dos muestras independientes.
+
+Los resultados fueron:
+
+* Estadístico de prueba: t = –1.7807
+* Grados de libertad: df = 229.71
+* Valor p: 0.03814
+* Intervalo de confianza al 96%: (–$\infty$, –12.31105)
+
+Medias muestrales:
+* Nivel bajo: $616.29
+* Nivel alto: $1,603.53
+
+Dado que el valor p (0.03814) es menor que $\alpha$ (0.04), se rechaza la hipótesis nula. Esto indica que existe evidencia estadística suficiente para afirmar que las personas con mayor nivel educativo gastan más en libros que aquellas con menor escolaridad. Este hallazgo se visualiza en la Gráfica 2, donde se aprecia que el grupo con mayor nivel educativo presenta un gasto promedio más alto y mayor variabilidad.
+
+```{r, echo=FALSE}
+par(mfrow = c(1, 2))
+
+# Histograma para Nivel Bajo (≤4)
+hist(LI1, 
+     main = "Gasto en libros - Nivel educativo bajo (≤4)", 
+     xlab = "Gasto (pesos)", 
+     col = rgb(1,0,0,0.5), 
+     border = "white",
+     breaks = 30,
+     ylim = c(0, max(c(length(LI1[LI1 < 5000]), length(LS1[LS1 < 5000])))),
+     xlim = c(0, 10000))
+legend("topright", 
+       legend = "Nivel bajo (≤4)", 
+       fill = rgb(1,0,0,0.5))
+
+# Histograma para Nivel Alto (≥7)
+hist(LS1, 
+     main = "Gasto en libros - Nivel educativo alto (≥7)", 
+     xlab = "Gasto (pesos)", 
+     col = rgb(0,0,1,0.5), 
+     border = "white",
+     breaks = 150,
+     ylim = c(0, max(c(length(LI1[LI1 < 10000]), length(LS1[LS1 < 10000])))),
+     xlim = c(0, 10000))
+# Añadir leyenda dentro del segundo histograma (opcional)
+legend("topright", 
+       legend = "Nivel alto (≥7)", 
+       fill = rgb(0,0,1,0.5))
+
+par(mfrow = c(1, 1))
+```
+Gráfica 2. Gasto en libros según el nivel educativo.
+
+**Hipótesis 2: El número de libros leídos varía según la condición de actividad económica**
+
+Se compararon dos grupos:
+
+* Trabaja: personas que trabajaron para obtener ingresos (cond_act = 1)
+* No trabaja: estudiantes, jubilados, desempleados, etc. (cond_act ≠ 1)
+
+Debido a la asimetría en la variable número de libros leídos y a la desigualdad de varianzas entre grupos (como se observa en la Gráfica 3), se aplicó nuevamente la prueba t de Welch.
+
+```{r, echo=FALSE, fig.width=12, fig.height=4}
+par(mfrow = c(1,2))
+
+# Histograma para quienes trabajan
+hist(trabaja, 
+     main = "Libros leídos - Trabaja", 
+     xlab = "Número de libros", 
+     col = "coral", 
+     border = "white",
+     breaks = 20)
+
+# Histograma para quienes no trabajan
+hist(no_trabaja, 
+     main = "Libros leídos - No trabaja", 
+     xlab = "Número de libros", 
+     col = "lightgreen", 
+     border = "white",
+     breaks = 20)
+
+par(mfrow = c(1,1))
+```
+Gráfica 3 y 4. Libros leídos según su condición de actividad económica.
+
+Las hipótesis fueron:
+
+* H0: No hay diferencia en el número promedio de libros leídos entre quienes trabajan y quienes no.
+* H₁: Sí existe diferencia
+
+Resultados:
+
+* Estadístico de prueba: t = 1.1749
+* Grados de libertad: df = 281.32
+* Valor p: 0.241
+* Intervalo de confianza al 96%: [–0.5241, 1.9104]
+
+Medias muestrales:
+* Trabaja: 4.23 libros
+* No trabaja: 3.54 libros
+
+Como el valor p (0.241) es mayor que $\alpha$ (0.04) y el intervalo de confianza incluye el cero, no se rechaza la hipótesis nula. No hay evidencia de que la condición de actividad económica influya en la cantidad de libros leídos por gusto. Esto se refleja en las Gráficas 3 y 4 incluídas anteriormente, donde las distribuciones de lectura para ambos grupos son similares, concentradas en valores bajos.
 
 ## Discusión y conclusiones
 
@@ -190,4 +303,12 @@ Link del repositorio en github (docs/quarto/reports):
 
 <https://github.com/AnnetteChoque/A00842260_ModelacionEstadistica.git>
 
-Los anexos pueden ser información importante que es demasiado extensa para incluirla en tu reporte, pero que mencionas y analizas en el cuerpo de tu reporte
+```{r, echo=FALSE}
+boxplot(p7_3 ~ nivel, data = M2224,
+        main = "Gasto en libros por nivel educativo",
+        xlab = "Nivel educativo",
+        ylab = "Gasto (pesos)",
+        col = "lavender",
+        las = 2)
+```
+Anexo 2. Gasto en libros por nivel educativo.
