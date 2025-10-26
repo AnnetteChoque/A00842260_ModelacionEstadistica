@@ -297,7 +297,7 @@ for (v in names(Datos_cuant_combinados)) {
   hist(Datos_cuant_combinados[[v]], 
        main = paste("Histograma de", v, "(2022-2024)"), 
        xlab = v, col = "steelblue", border = "white",
-       breaks = 40)
+       breaks = 20)
 }
 par(mfrow = c(1,1))
 ```
