@@ -24,6 +24,7 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 library(ggplot2)
+library(plotrix)
 M22L = read.csv("Datos2022Limpios.csv")
 M23L = read.csv("Datos2023Limpios.csv")
 M24L = read.csv("Datos2024Limpios.csv")
@@ -281,9 +282,125 @@ Medias muestrales:
 
 Como el valor p (0.241) es mayor que $\alpha$ (0.04) y el intervalo de confianza incluye el cero, no se rechaza la hipótesis nula. No hay evidencia de que la condición de actividad económica influya en la cantidad de libros leídos por gusto. Esto se refleja en las Gráficas 3 y 4 incluídas anteriormente, donde las distribuciones de lectura para ambos grupos son similares, concentradas en valores bajos.
 
+**Hipótesis 3: Existen diferencias de género en el comportamiento lector**
+
+Se comparó el número de libros leídos entre hombres (sexo = 1) y mujeres (sexo = 2). Dado que los tamaños muestrales eran grandes y balanceados, y las varianzas se consideraron iguales, se utilizó la prueba t clásica para dos muestras independientes.
+
+* H0: No existen diferencias en el número promedio de libros leídos entre hombres y mujeres.
+* H1: Sí existen diferencias.
+
+Resultados:
+
+* Estadístico de prueba: t = 1.5945
+* Grados de libertad: df = 388
+* Valor p: 0.1116
+* Intervalo de confianza al 96%: [–0.2677, 2.0984]
+
+Medias muestrales:
+* Hombres: 4.52 libros
+* Mujeres: 3.60 libros
+
+Dado que el valor p (0.1116) es mayor que $\alpha$ (0.04) y el intervalo de confianza incluye el cero, no se rechaza la hipótesis nula. No se encontró evidencia estadística de diferencias significativas de género en el número de libros leídos por gusto.
+
+A continuación se muestran los gráficos con los respectivos intervalos de confianza para cada hipótesis.
+
+```{r, echo=FALSE}
+alfa = 0.04
+nc = 1 - alfa
+
+media_bajo = mean(LI1)
+media_alto = mean(LS1)
+se_bajo = sd(LI1) / sqrt(length(LI1))
+se_alto = sd(LS1) / sqrt(length(LS1))
+E_bajo = qt(1 - alfa/2, length(LI1)-1) * se_bajo
+E_alto = qt(1 - alfa/2, length(LS1)-1) * se_alto
+
+media_trabaja = mean(trabaja)
+media_no_trabaja = mean(no_trabaja)
+se_trabaja = sd(trabaja) / sqrt(length(trabaja))
+se_no_trabaja = sd(no_trabaja) / sqrt(length(no_trabaja))
+E_trabaja = qt(1 - alfa/2, length(trabaja)-1) * se_trabaja
+E_no_trabaja = qt(1 - alfa/2, length(no_trabaja)-1) * se_no_trabaja
+
+media_hombres = mean(hombres)
+media_mujeres = mean(mujeres)
+se_hombres = sd(hombres) / sqrt(length(hombres))
+se_mujeres = sd(mujeres) / sqrt(length(mujeres))
+E_hombres = qt(1 - alfa/2, length(hombres)-1) * se_hombres
+E_mujeres = qt(1 - alfa/2, length(mujeres)-1) * se_mujeres
+
+medias1 = c(media_bajo, media_alto)
+medias2 = c(media_trabaja, media_no_trabaja)
+medias3 = c(media_hombres, media_mujeres)
+errores1 = c(E_bajo, E_alto)
+errores2 = c(E_trabaja, E_no_trabaja)
+errores3 = c(E_hombres, E_mujeres)
+grupos1 = c("N-bajo", "N-alto")
+grupos2 = c("Trabaja", "No trabaja")
+grupos3 = c("Hombres", "Mujeres")
+colores1 = c("red", "blue")
+colores2 = c("green", "orange")
+colores3 = c("purple", "pink")
+
+par(mfrow = c(1, 3))
+plotCI(1:2, medias1, errores1,
+       main = "Hipótesis 1. Gasto en libros",
+       xlab = "Grupos comparados", 
+       ylab = "Media (con IC 96%)",
+       xaxt = "n",
+       pch = 19,
+       col = colores1,
+       lwd = 2,
+       cex = 1.5,
+       ylim = c(min(medias1 - errores1) - 1, max(medias1 + errores1) + 1))
+
+axis(1, at = 1:2, labels = grupos1, las = 2, cex.axis = 0.8)
+abline(v = c(2.5, 4.5), lty = 2, col = "gray")
+
+plotCI(1:2, medias2, errores2,
+       main = "Hipótesis 2. Condición económica",
+       xlab = "Grupos comparados", 
+       ylab = "Media (con IC 96%)",
+       xaxt = "n",
+       pch = 19,
+       col = colores2,
+       lwd = 2,
+       cex = 1.5,
+       ylim = c(min(medias2 - errores2) - 1, max(medias2 + errores2) + 1))
+
+axis(1, at = 1:2, labels = grupos2, las = 2, cex.axis = 0.8)
+abline(v = c(2.5, 4.5), lty = 2, col = "gray")
+
+plotCI(1:2, medias3, errores3,
+       main = "Hipótesis 3. Género",
+       xlab = "Grupos comparados", 
+       ylab = "Media (con IC 96%)",
+       xaxt = "n",
+       pch = 19,
+       col = colores3,
+       lwd = 2,
+       cex = 1.5,
+       ylim = c(min(medias3 - errores3) - 1, max(medias3 + errores3) + 1))
+
+axis(1, at = 1:2, labels = grupos3, las = 2, cex.axis = 0.8)
+abline(v = c(2.5, 4.5), lty = 2, col = "gray")
+```
+Gráficas 5, 6 y 7. Intervalos de confianza para cada hipótesis
+
+En las gráficas 6 y 7, correspondientes a las hipótesis 2 y 3, se puede observar como los intervalos de confianza se traslapan, lo que confirma que no hay evidencia para rechazar las hipótesis propuestas. Por otro lado, en la gráfica 5 correspondiente a la hipótesis 1, se observa como también los intervalos se traslapan ligeramente en el rango de $500 a \$800 aproximadamente, sin embargo, gracias a la prueba estadística hecha, se pudo rechar la hipótesis y afirmar que el nivel educativo si influye en el gasto de libros.
+
 ## Discusión y conclusiones
 
-Como respuesta a la pregunta de investigación y a partir del análisis descriptivo e inferencial,  podemos concluir que el nivel educativo influye de manera significativa en el gasto destinado a la compra de libros, es decir, las personas con mayor grado académico (hasta licenciatura o posgrados)  invierten más en la lectura, que aquellas personas con un menor grado académico (quienes terminaron hasta el bachillerato o menores niveles académicos). Por otro lado, no se encontraron diferencias significativas en el número de libros leídos según género o condición laboral, es decir, hombres, mujeres, trabajadores y no trabajadores presentan hábitos de lectura similares. En resumen, el nivel educativo es el factor que más influye en el gasto en libros por gusto; esto resalta la importancia de fortalecer la educación y promover el acceso a materiales de lectura desde etapas tempranas, así como nutrir el interés y la curiosidad de la población por consumir contenido literario que aporte en su formación.
+Como respuesta a la pregunta de investigación y a partir del análisis descriptivo e inferencial,  podemos concluir que el nivel educativo influye de manera significativa en el gasto destinado a la compra de libros, es decir, las personas con mayor grado académico (hasta licenciatura o posgrados)  invierten más en la lectura, que aquellas personas con un menor grado académico (quienes terminaron hasta el bachillerato o menores niveles académicos). Por otro lado, no se encontraron diferencias significativas en el número de libros leídos según género o condición laboral, es decir, hombres, mujeres, trabajadores y no trabajadores presentan hábitos de lectura similares. En resumen, el nivel educativo es el factor que más influye en el gasto en libros por gusto; esto resalta la importancia de fortalecer la educación y promover el acceso a materiales de lectura desde etapas tempranas, así como nutrir el interés y la curiosidad de la población por consumir contenido literario que aporte en su formación.
+
+A partir de los resultados obtenidos, se proponen dos propuestas que buscan fomentar el habito de la lectura en los adultos mexicanos, sobre todo aquello cuyo nivel educativo se considera inferior. Las dos propuestas son:
+
+1. Colocar mini relatos en los respaldos de los asientos de autobuses/metro, transformando tiempos muertos de viaje en experiencias literarias breves que capturan la atención de los pasajeros y siembran curiosidad por la lectura.
+
+2. Antes de cada película, mostramos un tráiler literario: una escena dramatizada que termina revelando que la historia continúa en un libro, aprovechando la audiencia para conectar la emoción cinematográfica con la lectura.
+
+Ambas propuestas aprovechan el contexto cotidiano y el entretenimiento para introducir la lectura de manera natural, accesible y atractiva. Se busca despertar la curiosidad por leer y generar un interés gradual por los libros.
+
 
 ## Referencias
 
