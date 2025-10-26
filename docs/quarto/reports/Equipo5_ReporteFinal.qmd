@@ -47,9 +47,13 @@ Este análisis no solo responde la pregunta de investigación, confirmando que e
 
 ## Introducción y justificacion
 
-En México, la lectura es considerada esencial para el desarrollo personal y profesional y social (Escudero, 2025). Sin embargo, a pesar de los esfuerzos por parte del gobierno para fomentar este hábito en la población mexicana, la mayoría de las personas no practican este hábito. Según la UNESCO, ocupamos un lugar de 105 internacionalmente en el ámbito de la lectura, lo cual muestra que todavía es un gran reto promover la lectura entre mexicanos. Leer no solo mejora la comprensión y conocimiento de las personas, sino también influye en la forma en la que las personas piensan e interactúan con su entorno. Según Daniel Cassany, la lectura no es solo entender palabras, sino también interpretar y conectar ideas con la realidad.
+En México, la lectura es considerada esencial para el desarrollo personal y profesional y social (Escudero, 2025). Sin embargo, a pesar de los esfuerzos por parte del gobierno para fomentar este hábito en la población mexicana, la mayoría de las personas no practican este hábito. Según la UNESCO, ocupamos un lugar de 105 internacionalmente en el ámbito de la lectura, lo cual muestra que todavía es un gran reto promover la lectura entre mexicanos.
 
-Se aborda la problemática general y se concluye con el problema que se abordará (pregunta rectora) y su justificación. Contiene al menos cuatro citas de autores (en formato APA) que aborden el tema y tus propios comentarios y reflexiones.
+Leer no solo mejora la comprensión y conocimiento de las personas, sino también influye en la forma en la que las personas piensan e interactúan con su entorno. Según Daniel Cassany, la lectura no es solo entender palabras, sino también interpretar y conectar ideas con la realidad. Por otra parte, Roger Chartier explica que la lectura cambia con el tiempo y depende de factores como el contexto social y cultural de cada uno. A partir de estudios realizados se han documentado que las desigualdades educativas limitan el acceso a la lectura y su fluidez, si se tiene un mayor nivel educativo normalmente se relaciona a mayor acceso a gran variedad de textos y libros con una variedad cultural mucho más amplia (De Hoyos, Estrada & Vargas, 2021; Escudero, 2025).
+
+Aunque la lectura es socialmente valorada en México, los datos del MOLEC revelan que, en muchos casos, se vincula más con obligaciones académicas o laborales que con el disfrute personal (INEGI, 2015). Nuestro análisis se centra específicamente en quienes declaran leer por gusto, ya que son ellos quienes reflejan una adopción voluntaria del hábito lector. Además, la lectura también representa un sector económico que impulsa editoriales, ferias del libro, autores y plataformas digitales (SEP, 2020).
+
+Teniendo esto en cuenta, la pregunta que nos planteamos es la siguiente: **¿Cómo influyen el nivel educativo, la condición de actividad económica, el sexo y la edad en el gasto en libros y la cantidad de libros leídos por adultos mexicanos que reportan leer por gusto de los años 2022 a 2024?** Con esto, buscamos analizar estadísticamente los datos de 2022a 2024 del Módulo de Lectura del INEGI. Además, proponemos soluciones prácticas para promover la lectura en espacios cotidianos. De esta forma, buscamos que leer se convierta en una actividad más atractiva y parte de la vida diaria de la población mexicana.
 
 ## Metodología
 
@@ -170,11 +174,15 @@ Integra la información obtenida a partir del análisis de datos que realizaste 
 
 ## Referencias
 
+De Estadística Y, I. N. (2015). Módulo sobre Lectura (MOLEC). <https://www.inegi.org.mx/programas/molec/>
+
+De Hoyos, R., Estrada, R., & Vargas, M. J. (2021). What do test scores really capture? Evidence from a large-scale student assessment in Mexico. World Development, 146, 105524.
+
 Escudero, E. B. (2025, April 8). La lectura en México. El Universal. <https://www.eluniversal.com.mx/opinion/eduardo-backhoff-escudero/la-lectura-en-mexico/>
 
 Ife, O. \|. (2022, May 31). La comprensión lectora: un reto para alumnos y maestros - Observatorio / Instituto para el Futuro de la Educación. Observatorio / Instituto Para El Futuro De La Educación. <https://observatorio.tec.mx/edu-bits-blog/2017-8-21-la-comprensin-lectora-un-reto-para-alumnos-y-maestros/>
 
-En formato APA Incluye la referencia completa de la base de datos Al menos 2 citas de artículos o libros A lo más 2 de páginas Web (a parte de la cita de la base de datos) Todas las referencias bibliográficas aquí mencionadas deben estar citadas en la descripción del proyecto Asegúrate de consultar fuentes confiables (las páaginas web deben tener autor e información del autor)
+Secretaría de Educación Pública. (2020). Programa sectorial de educación 2020-2024. Avance y resultados 2021. Diario Oficial.
 
 ## Anexos
 
